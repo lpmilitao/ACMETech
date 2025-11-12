@@ -17,7 +17,7 @@ public class CatalogoCompradores {
     }
 
     public void cadastrarComprador(String codRaw, String nome, String pais, String email){
-        // TODO
+        // implementação basica só para testar a leitura de arquivos
         Comprador novoComprador = new Comprador(Long.parseLong(codRaw), nome, pais, email);
         this.compradores.add(novoComprador);
     }
