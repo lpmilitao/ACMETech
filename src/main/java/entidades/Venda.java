@@ -9,12 +9,13 @@ public class Venda {
     private Tecnologia tecnologia;
     private Comprador comprador;
 
-    public Venda(long num, Date data, double valorFinal,  Tecnologia tecnologia,  Comprador comprador) {
+    public Venda(long num, Date data, Tecnologia tecnologia,  Comprador comprador) {
         this.num = num;
         this.data = data;
-        this.valorFinal = valorFinal;
+        this.valorFinal = 0;
         this.tecnologia = tecnologia;
         this.comprador = comprador;
+        this.valorFinal = calculaValorFinal();
     }
 
     public long getNum() {
@@ -60,5 +61,16 @@ public class Venda {
     public double calculaValorFinal(){
         // TODO
         return 0.0;
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" +
+                "num=" + num +
+                ", data=" + data +
+                ", valorFinal=" + valorFinal +
+                ", tecnologia=" + tecnologia.getDescricao() +
+                ", comprador=" + comprador.getNome() +
+                '}';
     }
 }

@@ -19,6 +19,8 @@ public class CatalogoTecnologias {
 
     public void cadastrarTecnologia(String id, String modelo, String descricao, String valorBase, String peso,
                                     String temperatura, Fornecedor fornecedor){
+        /// Implementação base só para testar o arquivo, sem verificações
+
         Tecnologia novaTecnologia = new Tecnologia(
                 Long.parseLong(id), modelo, descricao, Double.parseDouble(valorBase),
                 Double.parseDouble(peso), Double.parseDouble(temperatura)
@@ -26,5 +28,12 @@ public class CatalogoTecnologias {
 
         novaTecnologia.defineFornecedor(fornecedor);
         this.tecnologias.add(novaTecnologia);
+    }
+
+    public Tecnologia getTecnologiaById(long id) {
+        return this.tecnologias.stream()
+                .filter(tecnologia -> tecnologia.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -21,4 +21,11 @@ public class CatalogoCompradores {
         Comprador novoComprador = new Comprador(Long.parseLong(codRaw), nome, pais, email);
         this.compradores.add(novoComprador);
     }
+
+    public Comprador getCompradorByCod(long cod) {
+        return this.compradores.stream()
+                .filter(comprador -> comprador.getCod() == cod)
+                .findFirst()
+                .orElse(null);
+    }
 }

@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static dados.Util.transformaData;
+
 public class CatalogoFornecedores {
     private List<Fornecedor> fornecedores;
 
@@ -52,13 +54,6 @@ public class CatalogoFornecedores {
 
     private void sortFornecedores() {
         this.fornecedores.sort(Comparator.comparingLong(Fornecedor::getCod));
-    }
-
-    private Date transformaData(String dataRaw) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        formato.setLenient(false);
-
-        return formato.parse(dataRaw);
     }
 
     public void deletarTodos() {
