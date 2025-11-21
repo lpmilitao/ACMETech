@@ -1,31 +1,31 @@
 package aplicacao;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import dados.CatalogoCompradores;
 import dados.CatalogoFornecedores;
 import dados.CatalogoTecnologias;
 import dados.CatalogoVendas;
 import entidades.Comprador;
-import entidades.Fornecedor;
 import entidades.Tecnologia;
 import entidades.Venda;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class ACMETech {
     private CatalogoFornecedores fornecedores;
     private CatalogoCompradores compradores;
     private CatalogoTecnologias tecnologias;
     private CatalogoVendas vendas;
+    private ObjectMapper mapper = new ObjectMapper();
 
     public ACMETech() {
         this.fornecedores = new CatalogoFornecedores();
@@ -46,26 +46,6 @@ public class ACMETech {
         cadastrarTecnologias();
 
         cadastrarVendas();
-
-        System.out.println("Fornecedores:");
-        for (Fornecedor fornecedor : fornecedores.getFornecedores()) {
-            System.out.println(fornecedor.getNome());
-        }
-
-        System.out.println("\nCompradores:");
-        for (Comprador comprador : compradores.getCompradores()) {
-            System.out.println(comprador.getNome());
-        }
-
-        System.out.println("\nTecnologias:");
-        for (Tecnologia tecnologia : tecnologias.getTecnologias()) {
-            System.out.println(tecnologia.getDescricao());
-        }
-
-        System.out.println("\nVendas:");
-        for (Venda venda : vendas.getVendas()) {
-            System.out.println(venda.toString());
-        }
     }
 
     private void cadastrarParticipantes() {
@@ -168,4 +148,19 @@ public class ACMETech {
         }
     }
 
+    public <T> boolean salvarDados(List<T> lista, String arquivo) {
+
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        mapper.setVisibility(com.fasterxml.jackson.annotation.PropertyAccessor.FIELD,
+                com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY);
+
+        try {
+            mapper.writeValue(new File("persistencia", arquivo), lista);
+            return true;
+
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar: " + e.getMessage());
+            return false;
+        }
+    }
 }
