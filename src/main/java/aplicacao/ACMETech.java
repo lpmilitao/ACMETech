@@ -56,7 +56,7 @@ public class ACMETech extends JFrame {
         telas.put(Telas.MENU, new Menu(this));
         telas.put(Telas.CADASTRO_FORNECEDOR, new CadastroFornecedor(this, fornecedores));
         telas.put(Telas.CADASTRO_COMPRADOR, new CadastroComprador(this, compradores));
-        telas.put(Telas.CADASTRO_TECNOLOGIA, new CadastroTecnologia(this, tecnologias));
+        telas.put(Telas.CADASTRO_TECNOLOGIA, new CadastroTecnologia(this, fornecedores, tecnologias));
         telas.put(Telas.CADASTRO_VENDA, new CadastroVenda(this, compradores, tecnologias, vendas));
         telas.put(Telas.RELATORIO_FORNECEDOR, new RelatorioFornecedor(this, fornecedores));
         telas.put(Telas.RELATORIO_TECNOLOGIA, new RelatorioTecnologia(this, tecnologias));
