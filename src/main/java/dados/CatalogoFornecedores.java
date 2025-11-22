@@ -6,6 +6,7 @@ import entidades.FornecedorJaExistenteException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 import static dados.Util.transformaData;
@@ -33,10 +34,9 @@ public class CatalogoFornecedores {
 
         long cod = Long.parseLong(codRaw.trim());
         checarCodigoRepetido(cod);
+        LocalDate data = LocalDate.parse(dataRaw.trim());
 
-        Fornecedor novoFornecedor = new Fornecedor(cod, nome,
-                transformaData(dataRaw), area
-        );
+        Fornecedor novoFornecedor = new Fornecedor(cod, nome, data, area);
         this.fornecedores.add(novoFornecedor);
 
         sortFornecedores();

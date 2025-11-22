@@ -1,22 +1,23 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Fornecedor extends Participante {
-    private Date fundacao;
+    private LocalDate fundacao;
     private Area area;
 
-    public Fornecedor(long cod, String nome, Date fundacao, Area area) {
+    public Fornecedor(long cod, String nome, LocalDate fundacao, Area area) {
         super(cod, nome);
         this.fundacao = fundacao;
         this.area = area;
     }
 
-    public Date getFundacao() {
+    public LocalDate getFundacao() {
         return fundacao;
     }
 
-    public void setFundacao(Date fundacao) {
+    public void setFundacao(LocalDate fundacao) {
         this.fundacao = fundacao;
     }
 

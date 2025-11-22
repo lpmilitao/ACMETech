@@ -5,6 +5,7 @@ import entidades.Tecnologia;
 import entidades.Venda;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,12 +21,13 @@ public class CatalogoVendas {
         return vendas;
     }
 
-    public Venda gerarVenda(String numRaw, String dataRaw, Tecnologia tecnologia, Comprador comprador) throws ParseException {
+    public Venda gerarVenda(String numRaw, String dataRaw, Tecnologia tecnologia, Comprador comprador)
+            throws ParseException, IllegalArgumentException {
 
         if (numRaw.trim().isBlank() || dataRaw.trim().isBlank()) throw new IllegalArgumentException();
 
         long num = Long.parseLong(numRaw.trim());
-        Date data = Util.transformaData(dataRaw);
+        LocalDate data = LocalDate.parse(dataRaw.trim());
 
         return new Venda(num, data, tecnologia, comprador);
     }
