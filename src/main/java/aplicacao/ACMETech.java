@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import dados.*;
 import entidades.*;
+import ui.*;
 import ui.Menu;
-import ui.TelaBase;
-import ui.Telas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +37,9 @@ public class ACMETech extends JFrame {
     }
 
     public void executar() {
-        // TODO
+        //iniciando tela cíclica
+        mudarTela(Telas.MENU);
+        setVisible(true);
     }
 
 
@@ -50,6 +51,22 @@ public class ACMETech extends JFrame {
         cadastrarVendas();
 
         inicializarLayout();
+
+        telas = new HashMap<>();
+        telas.put(Telas.MENU, new Menu(this));
+        telas.put(Telas.CADASTRO_FORNECEDOR, new CadastroFornecedor(this, fornecedores));
+        telas.put(Telas.CADASTRO_COMPRADOR, new CadastroComprador(this, compradores));
+        telas.put(Telas.CADASTRO_TECNOLOGIA, new CadastroTecnologia(this, tecnologias));
+        telas.put(Telas.CADASTRO_VENDA, new CadastroVenda(this, compradores, tecnologias, vendas));
+        telas.put(Telas.RELATORIO_FORNECEDOR, new RelatorioFornecedor(this, fornecedores));
+        telas.put(Telas.RELATORIO_TECNOLOGIA, new RelatorioTecnologia(this, tecnologias));
+        telas.put(Telas.RELATORIO_VENDA, new RelatorioVenda(this, vendas));
+        telas.put(Telas.RELATORIO_COMPRADOR, new RelatorioComprador(this, compradores));
+        telas.put(Telas.REMOVER_VENDA, new RemoverVenda(this, vendas));
+        telas.put(Telas.ALTERAR_COMPRADOR, new AlterarComprador(this, compradores));
+        telas.put(Telas.CONSULTA, new Consulta(this, fornecedores, compradores, tecnologias, vendas));
+        telas.put(Telas.SALVAR_DADOS, new SalvarDados(this, fornecedores, compradores, tecnologias, vendas));
+        telas.put(Telas.CARREGAR_DADOS, new CarregarDados(this, fornecedores, compradores, tecnologias, vendas));
     }
 
     private void cadastrarParticipantes() {
@@ -169,17 +186,11 @@ public class ACMETech extends JFrame {
     }
 
     private void inicializarLayout() {
-        telas = new HashMap<>();
-        telas.put(Telas.MENU, new Menu(this));
-
         setBackground(new Color(226, 239, 222));
         setTitle("ACMETech");
         setSize(1300, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
-
-        mudarTela(Telas.MENU);
-        setVisible(true);
     }
 
     public void mudarTela(Telas tela) {
