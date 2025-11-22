@@ -6,6 +6,7 @@ import entidades.Venda;
 
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +28,8 @@ public class CatalogoVendas {
         if (numRaw.trim().isBlank() || dataRaw.trim().isBlank()) throw new IllegalArgumentException();
 
         long num = Long.parseLong(numRaw.trim());
-        LocalDate data = LocalDate.parse(dataRaw.trim());
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate data = LocalDate.parse(dataRaw.trim(),  formato);
 
         return new Venda(num, data, tecnologia, comprador);
     }

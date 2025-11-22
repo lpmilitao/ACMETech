@@ -2,14 +2,14 @@ package aplicacao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import dados.CatalogoCompradores;
-import dados.CatalogoFornecedores;
-import dados.CatalogoTecnologias;
-import dados.CatalogoVendas;
-import entidades.Comprador;
-import entidades.Tecnologia;
-import entidades.Venda;
+import dados.*;
+import entidades.*;
+import ui.Menu;
+import ui.TelaBase;
+import ui.Telas;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -19,13 +19,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.*;
+import java.util.List;
 
-public class ACMETech {
+public class ACMETech extends JFrame {
     private CatalogoFornecedores fornecedores;
     private CatalogoCompradores compradores;
     private CatalogoTecnologias tecnologias;
     private CatalogoVendas vendas;
     private ObjectMapper mapper = new ObjectMapper();
+    private HashMap<Telas, TelaBase> telas;
 
     public ACMETech() {
         this.fornecedores = new CatalogoFornecedores();
@@ -46,6 +48,8 @@ public class ACMETech {
         cadastrarTecnologias();
 
         cadastrarVendas();
+
+        inicializarLayout();
     }
 
     private void cadastrarParticipantes() {
@@ -162,5 +166,27 @@ public class ACMETech {
             System.err.println("Erro ao salvar: " + e.getMessage());
             return false;
         }
+    }
+
+    private void inicializarLayout() {
+        telas = new HashMap<>();
+        //telas.put(Telas.CADASTRO, new Cadastro(this, fornecedores));
+        telas.put(Telas.MENU, new Menu(this));
+        setFont(new Font("SansSerif", Font.BOLD, 14));
+        setBackground(new Color(226, 239, 222));
+
+        setTitle("ACMETech");
+        setSize(1300, 800);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+
+        mudarTela(Telas.MENU);
+        setVisible(true);
+    }
+
+    public void mudarTela(Telas tela) {
+        this.setContentPane(telas.get(tela).getPanel());
+        this.pack();
+        setSize(1300, 800);
     }
 }
