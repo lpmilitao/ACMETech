@@ -1,15 +1,16 @@
 package entidades;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Venda {
     private long num;
-    private Date data;
+    private LocalDate data;
     private double valorFinal;
     private Tecnologia tecnologia;
     private Comprador comprador;
 
-    public Venda(long num, Date data, Tecnologia tecnologia,  Comprador comprador) {
+    public Venda(long num, LocalDate data, Tecnologia tecnologia,  Comprador comprador) {
         this.num = num;
         this.data = data;
         this.valorFinal = 0;
@@ -26,11 +27,11 @@ public class Venda {
         this.num = num;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

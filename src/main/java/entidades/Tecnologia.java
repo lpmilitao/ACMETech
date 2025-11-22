@@ -1,7 +1,7 @@
 package entidades;
 
 public class Tecnologia {
-    private final long id;
+    private long id;
     private String modelo;
     private String descricao;
     private double valorBase;
@@ -20,6 +20,10 @@ public class Tecnologia {
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getModelo() {
@@ -66,7 +70,11 @@ public class Tecnologia {
         return fornecedor;
     }
 
-    public void defineFornecedor(Fornecedor f){
-        this.fornecedor = f;
+    public void setFornecedor(Fornecedor fornecedor) {
+        defineFornecedor(fornecedor);
+    }
+
+    public void defineFornecedor(Fornecedor fornecedor){
+        this.fornecedor = fornecedor;
     }
 }

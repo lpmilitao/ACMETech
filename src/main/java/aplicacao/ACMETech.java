@@ -2,14 +2,13 @@ package aplicacao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import dados.CatalogoCompradores;
-import dados.CatalogoFornecedores;
-import dados.CatalogoTecnologias;
-import dados.CatalogoVendas;
-import entidades.Comprador;
-import entidades.Tecnologia;
-import entidades.Venda;
+import dados.*;
+import entidades.*;
+import ui.*;
+import ui.Menu;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -19,13 +18,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.*;
+import java.util.List;
 
-public class ACMETech {
+public class ACMETech extends JFrame {
     private CatalogoFornecedores fornecedores;
     private CatalogoCompradores compradores;
     private CatalogoTecnologias tecnologias;
     private CatalogoVendas vendas;
     private ObjectMapper mapper = new ObjectMapper();
+    private HashMap<Telas, TelaBase> telas;
 
     public ACMETech() {
         this.fornecedores = new CatalogoFornecedores();
@@ -36,7 +37,9 @@ public class ACMETech {
     }
 
     public void executar() {
-        // TODO
+        //iniciando tela cíclica
+        mudarTela(Telas.MENU);
+        setVisible(true);
     }
 
 
@@ -46,6 +49,24 @@ public class ACMETech {
         cadastrarTecnologias();
 
         cadastrarVendas();
+
+        inicializarLayout();
+
+        telas = new HashMap<>();
+        telas.put(Telas.MENU, new Menu(this));
+        telas.put(Telas.CADASTRO_FORNECEDOR, new CadastroFornecedor(this, fornecedores));
+        telas.put(Telas.CADASTRO_COMPRADOR, new CadastroComprador(this, compradores));
+        telas.put(Telas.CADASTRO_TECNOLOGIA, new CadastroTecnologia(this, fornecedores, tecnologias));
+        telas.put(Telas.CADASTRO_VENDA, new CadastroVenda(this, compradores, tecnologias, vendas));
+        telas.put(Telas.RELATORIO_FORNECEDOR, new RelatorioFornecedor(this, fornecedores));
+        telas.put(Telas.RELATORIO_TECNOLOGIA, new RelatorioTecnologia(this, tecnologias));
+        telas.put(Telas.RELATORIO_VENDA, new RelatorioVenda(this, vendas));
+        telas.put(Telas.RELATORIO_COMPRADOR, new RelatorioComprador(this, compradores));
+        telas.put(Telas.REMOVER_VENDA, new RemoverVenda(this, vendas));
+        telas.put(Telas.ALTERAR_COMPRADOR, new AlterarComprador(this, compradores));
+        telas.put(Telas.CONSULTA, new Consulta(this, fornecedores, compradores, tecnologias, vendas));
+        telas.put(Telas.SALVAR_DADOS, new SalvarDados(this, fornecedores, compradores, tecnologias, vendas));
+        telas.put(Telas.CARREGAR_DADOS, new CarregarDados(this, fornecedores, compradores, tecnologias, vendas));
     }
 
     private void cadastrarParticipantes() {
@@ -162,5 +183,19 @@ public class ACMETech {
             System.err.println("Erro ao salvar: " + e.getMessage());
             return false;
         }
+    }
+
+    private void inicializarLayout() {
+        setBackground(new Color(226, 239, 222));
+        setTitle("ACMETech");
+        setSize(1300, 800);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+    }
+
+    public void mudarTela(Telas tela) {
+        this.setContentPane(telas.get(tela).getPanel());
+        this.pack();
+        setSize(1300, 800);
     }
 }

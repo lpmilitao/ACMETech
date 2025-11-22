@@ -1,7 +1,7 @@
 package entidades;
 
 public abstract class Participante {
-    private final long cod;
+    private long cod;
     private String nome;
 
     public Participante(long cod, String nome) {
@@ -11,6 +11,10 @@ public abstract class Participante {
 
     public long getCod() {
         return cod;
+    }
+
+    public void setCod(long cod) {
+        this.cod = cod;
     }
 
     public String getNome() {
