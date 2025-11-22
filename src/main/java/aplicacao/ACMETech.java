@@ -170,11 +170,9 @@ public class ACMETech extends JFrame {
 
     private void inicializarLayout() {
         telas = new HashMap<>();
-        //telas.put(Telas.CADASTRO, new Cadastro(this, fornecedores));
         telas.put(Telas.MENU, new Menu(this));
-        setFont(new Font("SansSerif", Font.BOLD, 14));
-        setBackground(new Color(226, 239, 222));
 
+        setBackground(new Color(226, 239, 222));
         setTitle("ACMETech");
         setSize(1300, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

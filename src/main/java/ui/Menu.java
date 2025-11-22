@@ -33,10 +33,6 @@ public class Menu extends TelaBase {
         return panelMenu;
     }
 
-    private void inicializarLayout() {
-
-    }
-
     private void createUIComponents() {
         botaoCadastroFornecedor = new Botao("Cadastrar Fornecedor");
         botaoCadastroTecnologia= new Botao("Cadastrar Tecnologia");
@@ -52,5 +48,20 @@ public class Menu extends TelaBase {
         botaoSalvarDados = new Botao("Salvar Dados");
         botaoCarregarDados = new Botao("Carregar Dados");
         botaoFinalizar = new Botao("Finalizar Programa");
+
+        botaoCadastroFornecedor.addActionListener(e -> aplicacao.mudarTela(Telas.CADASTRO_FORNECEDOR));
+        botaoCadastroTecnologia.addActionListener(e -> aplicacao.mudarTela(Telas.CADASTRO_TECNOLOGIA));
+        botaoCadastroComprador.addActionListener(e -> aplicacao.mudarTela(Telas.CADASTRO_COMPRADOR));
+        botaoCadastrarVenda.addActionListener(e -> aplicacao.mudarTela(Telas.CADASTRO_VENDA));
+        botaoRelatorioFornecedores.addActionListener(e -> aplicacao.mudarTela(Telas.RELATORIO_FORNECEDOR));
+        botaoRelatorioTecnologias.addActionListener(e -> aplicacao.mudarTela(Telas.RELATORIO_TECNOLOGIA));
+        botaoRelatorioCompradores.addActionListener(e -> aplicacao.mudarTela(Telas.RELATORIO_COMPRADOR));
+        botaoRelatorioVendas.addActionListener(e -> aplicacao.mudarTela(Telas.RELATORIO_VENDA));
+        botaoRemoverVenda.addActionListener(e -> aplicacao.mudarTela(Telas.REMOVER_VENDA));
+        botaoAlterarComprador.addActionListener(e -> aplicacao.mudarTela(Telas.ALTERAR_COMPRADOR));
+        botaoConsulta.addActionListener(e -> aplicacao.mudarTela(Telas.CONSULTA));
+        botaoSalvarDados.addActionListener(e -> aplicacao.mudarTela(Telas.SALVAR_DADOS));
+        botaoCarregarDados.addActionListener(e -> aplicacao.mudarTela(Telas.CARREGAR_DADOS));
+        botaoFinalizar.addActionListener(e -> System.exit(0));
     }
 }
