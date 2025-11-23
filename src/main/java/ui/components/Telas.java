@@ -1,4 +1,4 @@
-package ui;
+package ui.components;
 
 public enum Telas {
     MENU, CADASTRO_FORNECEDOR, CADASTRO_COMPRADOR, CADASTRO_TECNOLOGIA, CADASTRO_VENDA,

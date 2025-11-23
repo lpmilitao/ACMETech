@@ -1,4 +1,4 @@
-package ui;
+package ui.components;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,15 +6,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Botao extends JButton {
-    private Color corNormal = new Color(57, 65, 89);
-    private Color corHover = new Color(82, 85, 110);
+    private final Color COR_PADRAO = new Color(57, 65, 89);
+    private final Color COR_HOVER = new Color(82, 85, 110);
     private Color corAtual;
     private int raio = 15;
 
     public Botao(String texto) {
         super(texto);
 
-        this.corAtual = corNormal;
+        this.corAtual = COR_PADRAO;
         setText(texto);
         setContentAreaFilled(false);
         setFocusPainted(false);
@@ -26,13 +26,13 @@ public class Botao extends JButton {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                corAtual = corHover;
+                corAtual = COR_HOVER;
                 repaint();
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                corAtual = corNormal;
+                corAtual = COR_PADRAO;
                 repaint();
             }
         });

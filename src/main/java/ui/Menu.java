@@ -1,6 +1,9 @@
 package ui;
 
 import aplicacao.ACMETech;
+import ui.components.Botao;
+import ui.components.TelaBase;
+import ui.components.Telas;
 
 import javax.swing.*;
 

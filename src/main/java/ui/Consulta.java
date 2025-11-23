@@ -5,10 +5,11 @@ import dados.CatalogoCompradores;
 import dados.CatalogoFornecedores;
 import dados.CatalogoTecnologias;
 import dados.CatalogoVendas;
+import ui.components.TelaBase;
 
 import javax.swing.*;
 
-public class Consulta extends TelaBase{
+public class Consulta extends TelaBase {
     private final ACMETech APLICACAO;
     private final CatalogoFornecedores FORNECEDORES;
     private final CatalogoCompradores COMPRADORES;

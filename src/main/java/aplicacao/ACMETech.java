@@ -6,6 +6,8 @@ import dados.*;
 import entidades.*;
 import ui.*;
 import ui.Menu;
+import ui.components.TelaBase;
+import ui.components.Telas;
 
 import javax.swing.*;
 import java.awt.*;
