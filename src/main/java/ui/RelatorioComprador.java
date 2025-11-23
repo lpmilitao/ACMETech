@@ -2,9 +2,7 @@ package ui;
 
 import aplicacao.ACMETech;
 import dados.CatalogoCompradores;
-import dados.CatalogoFornecedores;
-import dados.CatalogoTecnologias;
-import dados.CatalogoVendas;
+import ui.components.TelaBase;
 
 import javax.swing.*;
 
