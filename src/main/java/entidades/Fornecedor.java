@@ -1,7 +1,6 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Fornecedor extends Participante {
     private LocalDate fundacao;
@@ -31,7 +30,6 @@ public class Fornecedor extends Participante {
 
     @Override
     public String geraDescricao() {
-        // TODO
-        return "";
+        return getCod() + ";" + getNome() + ";" + getFundacao() + ";" + getArea();
     }
 }

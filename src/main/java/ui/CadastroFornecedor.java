@@ -3,7 +3,7 @@ package ui;
 import aplicacao.ACMETech;
 import dados.CatalogoFornecedores;
 import entidades.Area;
-import entidades.FornecedorJaExistenteException;
+import entidades.ParticipanteJaExistenteException;
 import ui.components.*;
 
 import javax.swing.*;
@@ -87,7 +87,7 @@ public class CadastroFornecedor extends TelaBase {
 
             limparCampos();
 
-        } catch (FornecedorJaExistenteException excp) {
+        } catch (ParticipanteJaExistenteException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     excp.getMessage(),
@@ -105,14 +105,14 @@ public class CadastroFornecedor extends TelaBase {
         } catch (IllegalArgumentException  excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
-                    "O campos código e nome do fornecedor não podem ficar em branco!",
+                    "Todos os campos são obrigatórios!",
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );
         } catch (ParseException  excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
-                    "O código deve ser númerico e a data deve estar no formato dd/mm/aaaa",
+                    "A data deve estar no formato dd/mm/aaaa",
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );

@@ -1,6 +1,7 @@
 package dados;
 
 import entidades.Comprador;
+import entidades.ParticipanteJaExistenteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,20 @@ public class CatalogoCompradores {
         return this.compradores;
     }
 
-    public void cadastrarComprador(String codRaw, String nome, String pais, String email){
-        // implementação basica só para testar a leitura de arquivos
-        Comprador novoComprador = new Comprador(Long.parseLong(codRaw), nome, pais, email);
+    public void cadastrarComprador(String codRaw, String nome, String pais, String email) {
+
+        if (codRaw.trim().isBlank() || pais.trim().isBlank() || email.trim().isBlank() || nome.trim().isBlank())
+            throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
+
+        long cod = Long.parseLong(codRaw);
+        Comprador compradorExistente = getCompradorByCod(cod);
+
+        if (compradorExistente != null)
+            throw new ParticipanteJaExistenteException("Já existe um comprador com esse código.");
+
+        validaEmail(email);
+
+        Comprador novoComprador = new Comprador(cod, nome, pais, email);
         this.compradores.add(novoComprador);
     }
 
@@ -27,5 +39,13 @@ public class CatalogoCompradores {
                 .filter(comprador -> comprador.getCod() == cod)
                 .findFirst()
                 .orElse(null);
+    }
+
+    private void validaEmail(String email) {
+        String regex = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
+
+        if (email.isBlank() || !email.matches(regex)) {
+            throw new IllegalArgumentException("Email invalido");
+        }
     }
 }
