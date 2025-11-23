@@ -192,12 +192,16 @@ public class ACMETech extends JFrame {
         setTitle("ACMETech");
         setSize(1300, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
     }
 
     public void mudarTela(Telas tela) {
         this.setContentPane(telas.get(tela).getPanel());
         this.pack();
         setSize(1300, 800);
+
+        if (tela == Telas.CADASTRO_TECNOLOGIA){
+            CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);
+            cadastroTecnologia.atualizarFornecedores();
+        }
     }
 }

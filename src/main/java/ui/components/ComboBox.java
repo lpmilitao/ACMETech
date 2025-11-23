@@ -12,11 +12,8 @@ public class ComboBox<E> extends JComboBox<E> {
     private Color corAtual;
     private int raio = 15;
 
-    public ComboBox(List<E> items) {
+    public ComboBox() {
         super();
-        for (E item : items) {
-            addItem(item);
-        }
         inicializar();
     }
 
@@ -98,6 +95,13 @@ public class ComboBox<E> extends JComboBox<E> {
             }
 
             return this;
+        }
+    }
+
+    public void atualizarLista(List<E> itens){
+        removeAllItems();
+        for (E item : itens) {
+            addItem(item);
         }
     }
 }

@@ -29,7 +29,6 @@ public class Comprador extends Participante {
 
     @Override
     public String geraDescricao() {
-        // TODO
-        return "";
+        return getCod() + ";" + getNome() + ";" + getPais() + ";" + getEmail();
     }
 }

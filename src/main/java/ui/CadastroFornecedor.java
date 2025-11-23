@@ -3,7 +3,7 @@ package ui;
 import aplicacao.ACMETech;
 import dados.CatalogoFornecedores;
 import entidades.Area;
-import entidades.FornecedorJaExistenteException;
+import entidades.IdentificadorJaExistenteException;
 import ui.components.*;
 
 import javax.swing.*;
@@ -20,7 +20,7 @@ public class CadastroFornecedor extends TelaBase {
     private JTextField cod;
     private JTextField nome;
     private JTextField fundacao;
-    private JComboBox area;
+    private ComboBox area;
     private JButton botaoCadastrar;
     private JButton botaoLimpar;
     private JButton botaoVoltar;
@@ -69,7 +69,8 @@ public class CadastroFornecedor extends TelaBase {
         areas.add(Area.ALIMENTOS.toString());
         areas.add(Area.ANDROIDES.toString());
         areas.add(Area.EMERGENTE.toString());
-        area = new ComboBox<String>(areas);
+        area = new ComboBox<String>();
+        area.atualizarLista(areas);
     }
 
     private void cadastrar() {
@@ -87,7 +88,7 @@ public class CadastroFornecedor extends TelaBase {
 
             limparCampos();
 
-        } catch (FornecedorJaExistenteException excp) {
+        } catch (IdentificadorJaExistenteException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     excp.getMessage(),
@@ -105,14 +106,14 @@ public class CadastroFornecedor extends TelaBase {
         } catch (IllegalArgumentException  excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
-                    "O campos código e nome do fornecedor não podem ficar em branco!",
+                    "Todos os campos são obrigatórios!",
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );
         } catch (ParseException  excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
-                    "O código deve ser númerico e a data deve estar no formato dd/mm/aaaa",
+                    "A data deve estar no formato dd/mm/aaaa",
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );
