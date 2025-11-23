@@ -2,11 +2,10 @@ package ui;
 
 import aplicacao.ACMETech;
 import dados.CatalogoCompradores;
-import entidades.ParticipanteJaExistenteException;
+import entidades.IdentificadorJaExistenteException;
 import ui.components.*;
 
 import javax.swing.*;
-import java.text.ParseException;
 
 public class CadastroComprador extends TelaBase {
     private final ACMETech APLICACAO;
@@ -91,7 +90,7 @@ public class CadastroComprador extends TelaBase {
                     JOptionPane.ERROR_MESSAGE
             );
             this.cod.setText("");
-        } catch (ParticipanteJaExistenteException excp) {
+        } catch (IdentificadorJaExistenteException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     excp.getMessage(),

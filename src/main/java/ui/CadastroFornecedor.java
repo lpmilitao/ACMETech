@@ -3,7 +3,7 @@ package ui;
 import aplicacao.ACMETech;
 import dados.CatalogoFornecedores;
 import entidades.Area;
-import entidades.ParticipanteJaExistenteException;
+import entidades.IdentificadorJaExistenteException;
 import ui.components.*;
 
 import javax.swing.*;
@@ -20,7 +20,7 @@ public class CadastroFornecedor extends TelaBase {
     private JTextField cod;
     private JTextField nome;
     private JTextField fundacao;
-    private JComboBox area;
+    private ComboBox area;
     private JButton botaoCadastrar;
     private JButton botaoLimpar;
     private JButton botaoVoltar;
@@ -69,7 +69,8 @@ public class CadastroFornecedor extends TelaBase {
         areas.add(Area.ALIMENTOS.toString());
         areas.add(Area.ANDROIDES.toString());
         areas.add(Area.EMERGENTE.toString());
-        area = new ComboBox<String>(areas);
+        area = new ComboBox<String>();
+        area.atualizarLista(areas);
     }
 
     private void cadastrar() {
@@ -87,7 +88,7 @@ public class CadastroFornecedor extends TelaBase {
 
             limparCampos();
 
-        } catch (ParticipanteJaExistenteException excp) {
+        } catch (IdentificadorJaExistenteException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     excp.getMessage(),

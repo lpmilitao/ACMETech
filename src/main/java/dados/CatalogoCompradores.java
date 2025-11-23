@@ -1,7 +1,7 @@
 package dados;
 
 import entidades.Comprador;
-import entidades.ParticipanteJaExistenteException;
+import entidades.IdentificadorJaExistenteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class CatalogoCompradores {
         Comprador compradorExistente = getCompradorByCod(cod);
 
         if (compradorExistente != null)
-            throw new ParticipanteJaExistenteException("Já existe um comprador com esse código.");
+            throw new IdentificadorJaExistenteException("Já existe um comprador com esse código.");
 
         validaEmail(email);
 

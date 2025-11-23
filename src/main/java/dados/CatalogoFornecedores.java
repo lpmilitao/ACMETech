@@ -2,7 +2,7 @@ package dados;
 
 import entidades.Area;
 import entidades.Fornecedor;
-import entidades.ParticipanteJaExistenteException;
+import entidades.IdentificadorJaExistenteException;
 
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -48,7 +48,7 @@ public class CatalogoFornecedores {
                 .findFirst();
 
         if (fornecedorExistente.isPresent()){
-            throw new ParticipanteJaExistenteException("Fornecedor já existente com código " + cod);
+            throw new IdentificadorJaExistenteException("Fornecedor já existente com código " + cod);
         }
     }
 

@@ -13,6 +13,11 @@ public class Texto extends JLabel {
         configurarEstilo(titulo);
     }
 
+    public Texto(boolean titulo) {
+        super();
+        configurarEstilo(titulo);
+    }
+
     private void configurarEstilo(boolean titulo) {
         setForeground(COR_PADRAO);
         if (titulo) {
