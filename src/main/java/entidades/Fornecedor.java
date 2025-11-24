@@ -13,9 +13,13 @@ public class Fornecedor extends Participante {
         this.area = area;
     }
 
-    public String getFundacao() {
+    public String getFundacaoFormatada() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return fundacao.format(formatter);
+    }
+
+    public LocalDate getFundacao() {
+        return fundacao;
     }
 
     public void setFundacao(LocalDate fundacao) {

@@ -1,6 +1,7 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Venda {
@@ -10,7 +11,7 @@ public class Venda {
     private Tecnologia tecnologia;
     private Comprador comprador;
 
-    public Venda(long num, LocalDate data, Tecnologia tecnologia,  Comprador comprador) {
+    public Venda(long num, LocalDate data, Tecnologia tecnologia, Comprador comprador) {
         this.num = num;
         this.data = data;
         this.valorFinal = 0;
@@ -29,6 +30,11 @@ public class Venda {
 
     public LocalDate getData() {
         return data;
+    }
+
+    public String getDataFormatada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return data.format(formatter);
     }
 
     public void setData(LocalDate data) {
@@ -59,19 +65,14 @@ public class Venda {
         this.comprador = comprador;
     }
 
-    public double calculaValorFinal(){
-        // TODO
-        return 0.0;
+    public double calculaValorFinal() {
+        return tecnologia.getValorBase() +
+                (tecnologia.getValorBase() + tecnologia.getFornecedor().getArea().getAcrescimo());
     }
 
-    @Override
-    public String toString() {
-        return "Venda{" +
-                "num=" + num +
-                ", data=" + data +
-                ", valorFinal=" + valorFinal +
-                ", tecnologia=" + tecnologia.getDescricao() +
-                ", comprador=" + comprador.getNome() +
-                '}';
+    public String getRelatorio() {
+        return "[" + num + "] '" + tecnologia.getModelo() + ": " + tecnologia.getDescricao() +
+                "' comprado por '" + comprador.getNome() + "' (" + comprador.getCod() + ") pelo valor de R$ " + valorFinal
+                + " na data de " + getDataFormatada();
     }
 }

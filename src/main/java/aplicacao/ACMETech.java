@@ -222,7 +222,7 @@ public class ACMETech extends JFrame {
                 break;
             case RELATORIO_VENDA:
                 RelatorioVenda relatorioVenda = (RelatorioVenda) telas.get(Telas.RELATORIO_VENDA);
-                //relatorioVenda.atualizarLista();
+                relatorioVenda.atualizarLista();
                 break;
             default:
                 break;
