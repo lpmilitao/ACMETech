@@ -36,11 +36,20 @@ public class RelatorioTecnologia extends TelaBase {
         titulo = new Texto(true);
 
         relatorio = new AreaTexto();
-        atualizarLista();
     }
 
     public void atualizarLista() {
         relatorio.setText("");
+        if (TECNOLOGIAS.getTecnologias().isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this.getPanel(),
+                    "Não há nenhuma tecnologia cadastrada no sistema!",
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
         StringBuilder lista = new StringBuilder();
 
         for (Tecnologia tecnologia : TECNOLOGIAS.getTecnologias()) {

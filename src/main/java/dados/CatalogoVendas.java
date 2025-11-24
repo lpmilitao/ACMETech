@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -37,5 +38,10 @@ public class CatalogoVendas {
 
     public void cadastrarVenda(Venda venda) {
         this.vendas.add(venda);
+        sortVendas();
+    }
+
+    private void sortVendas() {
+        this.vendas.sort(Comparator.comparingLong(Venda::getNum));
     }
 }

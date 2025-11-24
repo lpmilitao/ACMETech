@@ -1,9 +1,11 @@
 package dados;
 
 import entidades.Comprador;
+import entidades.Fornecedor;
 import entidades.IdentificadorJaExistenteException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CatalogoCompradores {
@@ -32,6 +34,7 @@ public class CatalogoCompradores {
 
         Comprador novoComprador = new Comprador(cod, nome, pais, email);
         this.compradores.add(novoComprador);
+        sortCompradores();
     }
 
     public Comprador getCompradorByCod(long cod) {
@@ -47,5 +50,9 @@ public class CatalogoCompradores {
         if (email.isBlank() || !email.matches(regex)) {
             throw new IllegalArgumentException("Email invalido");
         }
+    }
+
+    private void sortCompradores() {
+        this.compradores.sort(Comparator.comparingLong(Comprador::getCod));
     }
 }
