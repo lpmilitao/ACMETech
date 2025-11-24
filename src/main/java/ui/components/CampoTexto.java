@@ -31,6 +31,7 @@ public class CampoTexto extends JTextField {
         setForeground(Color.WHITE);
         setCaretColor(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(11, 10, 11, 10));
+        setFont(FONTE_PADRAO);
 
         addFocusListener(new FocusAdapter() {
             @Override

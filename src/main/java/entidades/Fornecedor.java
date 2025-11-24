@@ -1,6 +1,7 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Fornecedor extends Participante {
     private LocalDate fundacao;
@@ -12,8 +13,9 @@ public class Fornecedor extends Participante {
         this.area = area;
     }
 
-    public LocalDate getFundacao() {
-        return fundacao;
+    public String getFundacao() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return fundacao.format(formatter);
     }
 
     public void setFundacao(LocalDate fundacao) {
@@ -31,5 +33,10 @@ public class Fornecedor extends Participante {
     @Override
     public String geraDescricao() {
         return getCod() + ";" + getNome() + ";" + getFundacao() + ";" + getArea();
+    }
+
+    @Override
+    public String toString() {
+        return "(" + getCod() + ") " + getNome() + " - "+ getFundacao() + " - " + getArea().toString();
     }
 }
