@@ -199,13 +199,33 @@ public class ACMETech extends JFrame {
         this.pack();
         setSize(1300, 800);
 
-        if (tela == Telas.CADASTRO_TECNOLOGIA){
-            CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);
-            cadastroTecnologia.atualizarFornecedores();
-        }
-        if (tela == Telas.CADASTRO_VENDA){
-            CadastroVenda cadastroVenda = (CadastroVenda) telas.get(Telas.CADASTRO_VENDA);
-            cadastroVenda.atualizarListas();
+        switch (tela) {
+            case CADASTRO_TECNOLOGIA:
+                CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);
+                cadastroTecnologia.atualizarFornecedores();
+                break;
+            case CADASTRO_VENDA:
+                CadastroVenda cadastroVenda = (CadastroVenda) telas.get(Telas.CADASTRO_VENDA);
+                cadastroVenda.atualizarListas();
+                break;
+            case RELATORIO_TECNOLOGIA:
+                RelatorioTecnologia relatorioTecnologia = (RelatorioTecnologia) telas.get(Telas.RELATORIO_TECNOLOGIA);
+                relatorioTecnologia.atualizarLista();
+                break;
+            case RELATORIO_FORNECEDOR:
+                RelatorioFornecedor relatorioFornecedor = (RelatorioFornecedor) telas.get(Telas.RELATORIO_FORNECEDOR);
+                relatorioFornecedor.atualizarLista();
+                break;
+            case RELATORIO_COMPRADOR:
+                RelatorioComprador relatorioComprador = (RelatorioComprador) telas.get(Telas.RELATORIO_COMPRADOR);
+                relatorioComprador.atualizarLista();
+                break;
+            case RELATORIO_VENDA:
+                RelatorioVenda relatorioVenda = (RelatorioVenda) telas.get(Telas.RELATORIO_VENDA);
+                relatorioVenda.atualizarLista();
+                break;
+            default:
+                break;
         }
     }
 }

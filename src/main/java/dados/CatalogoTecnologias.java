@@ -5,6 +5,7 @@ import entidades.IdentificadorJaExistenteException;
 import entidades.Tecnologia;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class CatalogoTecnologias {
@@ -54,6 +55,7 @@ public class CatalogoTecnologias {
         if (fornecedor != null) novaTecnologia.defineFornecedor(fornecedor);
 
         this.tecnologias.add(novaTecnologia);
+        sortTecnologias();
     }
 
     public Tecnologia getTecnologiaById(long id) {
@@ -61,5 +63,9 @@ public class CatalogoTecnologias {
                 .filter(tecnologia -> tecnologia.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    private void sortTecnologias() {
+        this.tecnologias.sort(Comparator.comparingLong(Tecnologia::getId));
     }
 }
