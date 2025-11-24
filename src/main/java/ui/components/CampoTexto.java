@@ -16,7 +16,11 @@ public class CampoTexto extends JTextField {
 
     public CampoTexto(int colunas) {
         super(colunas);
-        setSize(colunas,20);
+        ajustarLayout();
+    }
+
+    public CampoTexto() {
+        super();
         ajustarLayout();
     }
 

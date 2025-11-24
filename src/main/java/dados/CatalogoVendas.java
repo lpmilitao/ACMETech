@@ -25,7 +25,8 @@ public class CatalogoVendas {
     public Venda gerarVenda(String numRaw, String dataRaw, Tecnologia tecnologia, Comprador comprador)
             throws ParseException, IllegalArgumentException {
 
-        if (numRaw.trim().isBlank() || dataRaw.trim().isBlank()) throw new IllegalArgumentException();
+        if (numRaw.trim().isBlank() || dataRaw.trim().isBlank() || tecnologia == null || comprador == null)
+            throw new IllegalArgumentException("Todos os campos devem ser preenchidos");
 
         long num = Long.parseLong(numRaw.trim());
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
