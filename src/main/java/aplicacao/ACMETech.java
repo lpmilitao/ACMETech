@@ -203,5 +203,9 @@ public class ACMETech extends JFrame {
             CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);
             cadastroTecnologia.atualizarFornecedores();
         }
+        if (tela == Telas.CADASTRO_VENDA){
+            CadastroVenda cadastroVenda = (CadastroVenda) telas.get(Telas.CADASTRO_VENDA);
+            cadastroVenda.atualizarListas();
+        }
     }
 }

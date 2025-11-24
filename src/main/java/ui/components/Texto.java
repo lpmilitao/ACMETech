@@ -3,11 +3,9 @@ package ui.components;
 import javax.swing.*;
 import java.awt.*;
 
-public class Texto extends JLabel {
-    private final Font FONTE_PADRAO = new Font("SansSerif", Font.PLAIN, 14);
-    private final Font FONTE_TITULO = new Font("SansSerif", Font.BOLD, 20);
-    private final Color COR_PADRAO = new Color(43, 45, 66);
+import static ui.components.Padroes.*;
 
+public class Texto extends JLabel {
     public Texto(String texto, boolean titulo) {
         super(texto);
         configurarEstilo(titulo);
@@ -19,11 +17,9 @@ public class Texto extends JLabel {
     }
 
     private void configurarEstilo(boolean titulo) {
-        setForeground(COR_PADRAO);
-        if (titulo) {
-            setFont(FONTE_TITULO);
-            return;
-        }
+        setForeground(ROXO_TEXTO);
         setFont(FONTE_PADRAO);
+
+        if (titulo) setFont(FONTE_TITULO);
     }
 }
