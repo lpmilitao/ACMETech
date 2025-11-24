@@ -106,7 +106,7 @@ public class CadastroTecnologia extends TelaBase {
 
             JOptionPane.showMessageDialog(
                     this.getPanel(),
-                    "A nova foi cadastrado com sucesso!",
+                    "A nova tecnologia foi cadastrada com sucesso!",
                     "Sucesso",
                     JOptionPane.INFORMATION_MESSAGE
             );
