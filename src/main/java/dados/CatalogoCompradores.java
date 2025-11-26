@@ -1,9 +1,7 @@
 package dados;
 
 import entidades.Comprador;
-import entidades.Fornecedor;
 import entidades.IdentificadorJaExistenteException;
-import entidades.Tecnologia;
 
 import java.util.ArrayList;
 import java.util.Comparator;

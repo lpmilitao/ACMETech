@@ -2,16 +2,17 @@ package ui.components;
 
 import javax.swing.JTextField;
 import javax.swing.BorderFactory;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-import static ui.components.Padroes.*;
 
 public class CampoTexto extends JTextField {
+    private final Color ROXO = new Color(125, 135, 172);
+    private final Color ROXO_CLARO = new Color(82, 85, 110);
+    private final Font FONTE_PADRAO = new Font("SansSerif", Font.PLAIN, 16);
+    private final int RAIO = 15;
+
     private Color corAtual;
 
     public CampoTexto(int colunas) {

@@ -1,9 +1,12 @@
 package aplicacao;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import dados.*;
-import entidades.*;
+import dados.CatalogoCompradores;
+import dados.CatalogoFornecedores;
+import dados.CatalogoTecnologias;
+import dados.CatalogoVendas;
+import entidades.Comprador;
+import entidades.Tecnologia;
+import entidades.Venda;
 import ui.*;
 import ui.Menu;
 import ui.components.TelaBase;
@@ -12,7 +15,6 @@ import ui.components.Telas;
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,7 +22,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.*;
-import java.util.List;
+import java.util.Queue;
 
 public class ACMETech extends JFrame {
     private CatalogoFornecedores fornecedores;

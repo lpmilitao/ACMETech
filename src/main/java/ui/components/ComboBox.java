@@ -7,10 +7,10 @@ import java.awt.*;
 import java.util.List;
 
 public class ComboBox<E> extends JComboBox<E> {
-    private Color corNormal = new Color(125, 135, 172);
-    private Color corFoco = new Color(82, 85, 110);
     private Color corAtual;
-    private int raio = 15;
+    private final Color ROXO = new Color(125, 135, 172);
+    private final Color ROXO_CLARO = new Color(82, 85, 110);
+    private final int RAIO = 15;
 
     public ComboBox() {
         super();
@@ -18,7 +18,7 @@ public class ComboBox<E> extends JComboBox<E> {
     }
 
     private void inicializar() {
-        corAtual = corNormal;
+        corAtual = ROXO;
         setOpaque(false);
         setForeground(Color.WHITE);
         setFont(new Font("SansSerif", Font.PLAIN, 14));
@@ -35,7 +35,7 @@ public class ComboBox<E> extends JComboBox<E> {
 
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2.setColor(corAtual);
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), raio, raio);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), RAIO, RAIO);
 
         super.paintComponent(g);
     }
@@ -67,10 +67,9 @@ public class ComboBox<E> extends JComboBox<E> {
             return botaoSeta;
         }
 
-        // Remove o fundo quadrado azul feio que aparece ao clicar
+        // Remove o fundo quadrado azul que aparece ao clicar
         @Override
         public void paintCurrentValueBackground(Graphics g, Rectangle bounds, boolean hasFocus) {
-            // Não faz nada intencionalmente
         }
     }
 
@@ -84,13 +83,13 @@ public class ComboBox<E> extends JComboBox<E> {
 
             if (index == -1) {
                 setOpaque(false);
-                setBackground(new Color(0,0,0,0));
+                setBackground(new Color(0, 0, 0, 0));
             } else {
                 setOpaque(true);
                 if (isSelected) {
-                    setBackground(corFoco);
+                    setBackground(ROXO_CLARO);
                 } else {
-                    setBackground(corNormal);
+                    setBackground(ROXO);
                 }
             }
 
@@ -98,7 +97,7 @@ public class ComboBox<E> extends JComboBox<E> {
         }
     }
 
-    public void atualizarLista(List<E> itens){
+    public void atualizarLista(List<E> itens) {
         removeAllItems();
         for (E item : itens) {
             addItem(item);

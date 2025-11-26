@@ -5,9 +5,11 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static ui.components.Padroes.*;
-
 public class Botao extends JButton {
+    private final Color ROXO_ESCURO = new Color(57, 65, 89);
+    private final Color ROXO_CLARO = new Color(82, 85, 110);
+    private final int RAIO = 15;
+
     private Color corAtual;
 
     public Botao(String texto) {

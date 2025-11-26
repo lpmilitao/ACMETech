@@ -1,7 +1,6 @@
 package dados;
 
 import entidades.Comprador;
-import entidades.Fornecedor;
 import entidades.Tecnologia;
 import entidades.Venda;
 

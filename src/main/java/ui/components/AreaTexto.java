@@ -5,14 +5,12 @@ import javax.swing.BorderFactory;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
-import static ui.components.Padroes.*;
+import java.awt.*;
 
 public class AreaTexto extends JTextPane {
+    private final Color ROXO = new Color(125, 135, 172);
+    private final Font FONTE_PADRAO = new Font("SansSerif", Font.PLAIN, 16);
+    private final int RAIO = 15;
 
     public AreaTexto() {
         super();
