@@ -29,7 +29,7 @@ public class Consulta<T> extends TelaBase {
     private JButton botaoVoltar;
     private JScrollPane panelResultado;
     private JTextPane resultado;
-    private List<T> lista;
+    private List<?> lista;
 
     public Consulta(ACMETech APLICACAO, CatalogoFornecedores FORNECEDORES, CatalogoCompradores COMPRADORES,
                     CatalogoTecnologias TECNOLOGIAS, CatalogoVendas VENDAS) {
@@ -67,6 +67,7 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void consultarTecnologia() {
+        lista = TECNOLOGIAS.gedtTecnologiasComMaiorValor();
         atualizarLista();
     }
 
@@ -86,13 +87,22 @@ public class Consulta<T> extends TelaBase {
     private void atualizarLista() {
         resultado.setText("");
 
+        if (lista == null || lista.isEmpty()) {
+            resultado.setText("Nenhum registro encontrado.");
+            return;
+        }
+
         StringBuilder listaFinal = new StringBuilder();
 
-        for (T objeto : lista) {
+        for (Object objeto : lista) {
             listaFinal.append(objeto + "\n");
         }
 
         resultado.setText(listaFinal.toString());
+    }
+
+    public void limparLista(){
+        resultado.setText("Selecione uma opção de consulta.");
     }
 
     private void ajustarScrollPane() {

@@ -68,4 +68,17 @@ public class CatalogoTecnologias {
     private void sortTecnologias() {
         this.tecnologias.sort(Comparator.comparingLong(Tecnologia::getId));
     }
+
+    public List<Tecnologia> gedtTecnologiasComMaiorValor(){
+        this.tecnologias.sort(Comparator.comparingDouble(Tecnologia::getValorBase).reversed());
+        double maiorValorBase = this.tecnologias.getFirst().getValorBase();
+
+        List<Tecnologia> tecnologiasComMaiorValor = this.tecnologias.stream()
+                .filter(t -> t.getValorBase() >= maiorValorBase)
+                .toList();
+
+        sortTecnologias(); //voltando à ordenação padrão
+
+        return tecnologiasComMaiorValor;
+    }
 }
