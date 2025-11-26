@@ -1,5 +1,8 @@
 package entidades;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Tecnologia {
     private long id;
     private String modelo;
@@ -45,7 +48,8 @@ public class Tecnologia {
     }
 
     public double getValorBase() {
-        return valorBase;
+        BigDecimal bd = new BigDecimal(valorBase).setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setValorBase(double valorBase) {
