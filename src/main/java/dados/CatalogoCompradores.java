@@ -3,6 +3,7 @@ package dados;
 import entidades.Comprador;
 import entidades.Fornecedor;
 import entidades.IdentificadorJaExistenteException;
+import entidades.Tecnologia;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -60,10 +61,24 @@ public class CatalogoCompradores {
         if (codRaw.trim().isBlank() || pais.trim().isBlank() || email.trim().isBlank() || nome.trim().isBlank())
             throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
 
-        Comprador comprador =  getCompradorByCod(Long.parseLong(codRaw));
+        Comprador comprador = getCompradorByCod(Long.parseLong(codRaw));
 
         comprador.setNome(nome);
         comprador.setPais(pais);
         comprador.setEmail(email);
     }
+
+    public List<?> getCompradoresComMaisVendas() {
+        this.compradores.sort(Comparator.comparingDouble(Comprador::getQuantidadeComprada).reversed());
+        double maiorQtd = this.compradores.getFirst().getQuantidadeComprada();
+
+        List<Comprador> vencedores = this.compradores.stream()
+                .filter(c -> c.getQuantidadeComprada() >= maiorQtd)
+                .toList();
+
+        sortCompradores(); //ajustando a ordenação normal
+
+        return vencedores;
+    }
+
 }

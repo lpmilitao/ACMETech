@@ -77,6 +77,7 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void consultarComprador() {
+        lista = this.COMPRADORES.getCompradoresComMaisVendas();
         atualizarLista();
     }
 
