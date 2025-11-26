@@ -82,7 +82,7 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void consultarVenda() {
-
+        lista = this.VENDAS.getVendasMaisCaras();
         atualizarLista();
     }
 

@@ -85,4 +85,9 @@ public class Venda {
                 "' comprado por '" + comprador.getNome() + "' (" + comprador.getCod() + ") pelo valor de R$ " + valorFinal
                 + " na data de " + getDataFormatada();
     }
+
+    @Override
+    public String toString() {
+        return getRelatorio();
+    }
 }

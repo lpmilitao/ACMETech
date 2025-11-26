@@ -1,6 +1,7 @@
 package dados;
 
 import entidades.Comprador;
+import entidades.Fornecedor;
 import entidades.Tecnologia;
 import entidades.Venda;
 
@@ -28,9 +29,9 @@ public class CatalogoVendas {
 
         long num = Long.parseLong(numRaw.trim());
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate data = LocalDate.parse(dataRaw.trim(),  formato);
+        LocalDate data = LocalDate.parse(dataRaw.trim(), formato);
 
-        if (tecnologia.isVendida()){
+        if (tecnologia.isVendida()) {
             throw new IllegalArgumentException("A tecnologia '" + tecnologia.getModelo() + "' já foi vendida.");
         }
 
@@ -62,5 +63,19 @@ public class CatalogoVendas {
 
         venda.get().getTecnologia().setVendida(false);
         vendas.remove(venda.get());
+    }
+
+    public List<Venda> getVendasMaisCaras() {
+        this.vendas.sort(Comparator.comparingDouble(Venda::getValorFinal).reversed());
+        double maiorValor = this.vendas.getFirst().getValorFinal();
+
+        List<Venda> caras = this.vendas.stream()
+                .filter(v -> v.getValorFinal() >= maiorValor)
+                .toList();
+
+        sortVendas(); //ajustando a ordenação normal
+
+        return caras;
+
     }
 }
