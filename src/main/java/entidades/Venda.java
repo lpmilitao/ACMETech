@@ -1,8 +1,9 @@
 package entidades;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Venda {
     private long num;
@@ -11,7 +12,7 @@ public class Venda {
     private Tecnologia tecnologia;
     private Comprador comprador;
 
-    public Venda(long num, LocalDate data, Tecnologia tecnologia, Comprador comprador) {
+    public Venda(long num, LocalDate data, Tecnologia tecnologia,  Comprador comprador) {
         this.num = num;
         this.data = data;
         this.valorFinal = 0;
@@ -65,9 +66,18 @@ public class Venda {
         this.comprador = comprador;
     }
 
-    public double calculaValorFinal() {
-        return tecnologia.getValorBase() +
-                (tecnologia.getValorBase() + tecnologia.getFornecedor().getArea().getAcrescimo());
+    public double calculaValorFinal(){
+        double percentualAcrescidoPorArea = this.tecnologia.getFornecedor().getArea().getAcrescimo();
+        double percentualAcrescidoPorFidelidade = this.comprador.getQuantidadeComprada() * 0.01;
+
+        if (percentualAcrescidoPorFidelidade > 0.10) percentualAcrescidoPorFidelidade = 0.10; //trava o desconto em 10%
+
+        double valorBruto = tecnologia.getValorBase() + (percentualAcrescidoPorArea * tecnologia.getValorBase());
+        double valorComDesconto = valorBruto - (percentualAcrescidoPorFidelidade * valorBruto);
+
+        BigDecimal bd = new BigDecimal(valorComDesconto).setScale(2, RoundingMode.HALF_UP); //deixando com duas casas decimais
+
+        return bd.doubleValue();
     }
 
     public String getRelatorio() {

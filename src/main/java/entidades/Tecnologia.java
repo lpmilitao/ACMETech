@@ -1,5 +1,8 @@
 package entidades;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Tecnologia {
     private long id;
     private String modelo;
@@ -8,6 +11,7 @@ public class Tecnologia {
     private double peso;
     private double temperatura;
     private Fornecedor fornecedor;
+    private boolean vendida;
 
     public Tecnologia(long id, String modelo, String descricao, double valorBase, double peso, double temperatura) {
         this.id = id;
@@ -16,6 +20,7 @@ public class Tecnologia {
         this.valorBase = valorBase;
         this.peso = peso;
         this.temperatura = temperatura;
+        this.vendida = false;
     }
 
     public long getId() {
@@ -43,7 +48,8 @@ public class Tecnologia {
     }
 
     public double getValorBase() {
-        return valorBase;
+        BigDecimal bd = new BigDecimal(valorBase).setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public void setValorBase(double valorBase) {
@@ -76,6 +82,14 @@ public class Tecnologia {
 
     public void defineFornecedor(Fornecedor fornecedor){
         this.fornecedor = fornecedor;
+    }
+
+    public boolean isVendida() {
+        return vendida;
+    }
+
+    public void setVendida(boolean vendida) {
+        this.vendida = vendida;
     }
 
     @Override

@@ -7,10 +7,7 @@ import entidades.Venda;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class CatalogoVendas {
     private List<Venda> vendas;
@@ -33,7 +30,15 @@ public class CatalogoVendas {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataRaw.trim(),  formato);
 
-        return new Venda(num, data, tecnologia, comprador);
+        if (tecnologia.isVendida()){
+            throw new IllegalArgumentException("A tecnologia '" + tecnologia.getModelo() + "' já foi vendida.");
+        }
+
+        Venda novaVenda = new Venda(num, data, tecnologia, comprador);
+        tecnologia.setVendida(true);
+        comprador.registrarNovaCompra();
+
+        return novaVenda;
     }
 
     public void cadastrarVenda(Venda venda) {
@@ -42,6 +47,19 @@ public class CatalogoVendas {
     }
 
     private void sortVendas() {
-        this.vendas.sort(Comparator.comparingLong(Venda::getNum));
+        this.vendas.sort(Comparator.comparingLong(Venda::getNum).reversed());
+    }
+
+    public void excluirVenda(String numRaw) {
+        if (numRaw.trim().isBlank()) throw new IllegalArgumentException("O número da venda precisa ser preenchido.");
+
+        long num = Long.parseLong(numRaw.trim());
+
+        Optional<Venda> venda = this.vendas.stream().filter(v -> v.getNum() == num)
+                .findFirst();
+
+        if (venda.isEmpty()) throw new IllegalArgumentException("A venda de no. '" + numRaw + "' não existe.");
+
+        vendas.remove(venda.get());
     }
 }
