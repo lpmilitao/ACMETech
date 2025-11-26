@@ -4,13 +4,13 @@ import aplicacao.ACMETech;
 import ui.components.Botao;
 import ui.components.TelaBase;
 import ui.components.Telas;
+import ui.components.Texto;
 
 import javax.swing.*;
 
 public class Menu extends TelaBase {
     private ACMETech aplicacao;
     private JPanel panelMenu;
-    private JPanel panelL1;
     private JButton botaoCadastroFornecedor;
     private JButton botaoCadastroTecnologia;
     private JButton botaoCadastroComprador;
@@ -25,7 +25,13 @@ public class Menu extends TelaBase {
     private JButton botaoSalvarDados;
     private JButton botaoCarregarDados;
     private JButton botaoFinalizar;
-    private JPanel panelL2;
+    private JLabel titulo;
+    private JLabel labelFornecedores;
+    private JLabel labelTecnologias;
+    private JLabel labelCompradores;
+    private JLabel labelVendas;
+    private JLabel labelDados;
+    private JLabel Dados;
 
     public Menu(ACMETech aplicacao) {
         this.aplicacao = aplicacao;
@@ -37,6 +43,13 @@ public class Menu extends TelaBase {
     }
 
     private void createUIComponents() {
+        titulo = new Texto(true);
+        labelFornecedores = new Texto(false);
+        labelCompradores = new Texto(false);
+        labelTecnologias = new Texto(false);
+        labelVendas = new Texto(false);
+        labelDados = new Texto(false);
+
         botaoCadastroFornecedor = new Botao("Cadastrar Fornecedor");
         botaoCadastroTecnologia= new Botao("Cadastrar Tecnologia");
         botaoCadastroComprador = new Botao("Cadastrar Comprador");
