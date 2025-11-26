@@ -68,9 +68,7 @@ public class CatalogoFornecedores {
     }
 
     public List<Fornecedor> getFornecedorComMaisTecnologias(List<Tecnologia> tecnologias) {
-        if (tecnologias.isEmpty()) {
-            return new ArrayList<>();
-        }
+        if (tecnologias.isEmpty() || fornecedores.isEmpty()) return new ArrayList<>();
 
         this.fornecedores.sort(Comparator.comparingDouble(Fornecedor::getQtdTecnologiasFornecidas).reversed());
         double maiorQtd = this.fornecedores.getFirst().getQtdTecnologiasFornecidas();

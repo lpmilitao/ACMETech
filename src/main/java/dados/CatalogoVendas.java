@@ -66,6 +66,8 @@ public class CatalogoVendas {
     }
 
     public List<Venda> getVendasMaisCaras() {
+        if (this.vendas.isEmpty()) return new ArrayList<>();
+
         this.vendas.sort(Comparator.comparingDouble(Venda::getValorFinal).reversed());
         double maiorValor = this.vendas.getFirst().getValorFinal();
 

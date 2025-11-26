@@ -69,6 +69,8 @@ public class CatalogoCompradores {
     }
 
     public List<?> getCompradoresComMaisVendas() {
+        if (this.compradores.isEmpty()) return new ArrayList<>();
+
         this.compradores.sort(Comparator.comparingDouble(Comprador::getQuantidadeComprada).reversed());
         double maiorQtd = this.compradores.getFirst().getQuantidadeComprada();
 

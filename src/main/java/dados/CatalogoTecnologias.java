@@ -70,6 +70,8 @@ public class CatalogoTecnologias {
     }
 
     public List<Tecnologia> gedtTecnologiasComMaiorValor(){
+        if (this.tecnologias.isEmpty()) return new ArrayList<>();
+
         this.tecnologias.sort(Comparator.comparingDouble(Tecnologia::getValorBase).reversed());
         double maiorValorBase = this.tecnologias.getFirst().getValorBase();
 

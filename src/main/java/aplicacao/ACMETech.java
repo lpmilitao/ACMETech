@@ -50,7 +50,7 @@ public class ACMETech extends JFrame {
 
         cadastrarTecnologias();
 
-        cadastrarVendas();
+        //cadastrarVendas();
 
         inicializarLayout();
 

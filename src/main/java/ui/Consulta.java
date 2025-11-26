@@ -87,6 +87,11 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void atualizarLista() {
+        if (lista.isEmpty()) {
+            erro();
+            return;
+        }
+
         resultado.setText("");
 
         if (lista == null || lista.isEmpty()) {
@@ -105,6 +110,16 @@ public class Consulta<T> extends TelaBase {
 
     public void limparLista(){
         resultado.setText("Selecione uma opção de consulta.");
+    }
+
+    private void erro(){
+        JOptionPane.showMessageDialog(
+                this.getPanel(),
+                "Nenhum registro encontrado.",
+                "Erro",
+                JOptionPane.ERROR_MESSAGE
+        );
+        limparLista();
     }
 
     private void ajustarScrollPane() {
