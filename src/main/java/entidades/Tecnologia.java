@@ -82,6 +82,7 @@ public class Tecnologia {
 
     public void defineFornecedor(Fornecedor fornecedor){
         this.fornecedor = fornecedor;
+        fornecedor.addTecnologia();
     }
 
     public boolean isVendida() {

@@ -60,6 +60,7 @@ public class CatalogoVendas {
 
         if (venda.isEmpty()) throw new IllegalArgumentException("A venda de no. '" + numRaw + "' não existe.");
 
+        venda.get().getTecnologia().setVendida(false);
         vendas.remove(venda.get());
     }
 }

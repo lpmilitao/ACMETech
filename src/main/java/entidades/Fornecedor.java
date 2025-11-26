@@ -6,11 +6,13 @@ import java.time.format.DateTimeFormatter;
 public class Fornecedor extends Participante {
     private LocalDate fundacao;
     private Area area;
+    private int qtdTecnologiasFornecidas;
 
     public Fornecedor(long cod, String nome, LocalDate fundacao, Area area) {
         super(cod, nome);
         this.fundacao = fundacao;
         this.area = area;
+        this.qtdTecnologiasFornecidas = 0;
     }
 
     public String getFundacaoFormatada() {
@@ -34,13 +36,25 @@ public class Fornecedor extends Participante {
         this.area = area;
     }
 
+    public int getQtdTecnologiasFornecidas() {
+        return qtdTecnologiasFornecidas;
+    }
+
+    public void setQtdTecnologiasFornecidas(int qtdTecnologiasFornecidas) {
+        this.qtdTecnologiasFornecidas = qtdTecnologiasFornecidas;
+    }
+
+    public void addTecnologia(){
+        this.qtdTecnologiasFornecidas++;
+    }
+
     @Override
     public String geraDescricao() {
-        return getCod() + ";" + getNome() + ";" + getFundacao() + ";" + getArea();
+        return getCod() + ";" + getNome() + ";" + getFundacao() + ";" + getArea() + ";" + getQtdTecnologiasFornecidas();
     }
 
     @Override
     public String toString() {
-        return "(" + getCod() + ") " + getNome() + " - "+ getFundacao() + " - " + getArea().toString();
+        return "(" + getCod() + ") " + getNome() + " - "+ getFundacao() + " - " + getArea().toString() + " - tecnologias: " + getQtdTecnologiasFornecidas();
     }
 }

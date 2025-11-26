@@ -72,6 +72,7 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void consultarFornecedor() {
+        lista = this.FORNECEDORES.getFornecedorComMaisTecnologias(this.TECNOLOGIAS.getTecnologias());
         atualizarLista();
     }
 
