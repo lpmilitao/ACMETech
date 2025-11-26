@@ -27,7 +27,6 @@ public class ACMETech extends JFrame {
     private CatalogoCompradores compradores;
     private CatalogoTecnologias tecnologias;
     private CatalogoVendas vendas;
-    private ObjectMapper mapper = new ObjectMapper();
     private HashMap<Telas, TelaBase> telas;
 
     public ACMETech() {
@@ -50,7 +49,7 @@ public class ACMETech extends JFrame {
 
         cadastrarTecnologias();
 
-        //cadastrarVendas();
+        cadastrarVendas();
 
         inicializarLayout();
 
@@ -168,22 +167,6 @@ public class ACMETech extends JFrame {
 
         while (!vendas.isEmpty()) {
             this.vendas.cadastrarVenda(vendas.poll());
-        }
-    }
-
-    public <T> boolean salvarDados(List<T> lista, String arquivo) {
-
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        mapper.setVisibility(com.fasterxml.jackson.annotation.PropertyAccessor.FIELD,
-                com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY);
-
-        try {
-            mapper.writeValue(new File("persistencia", arquivo), lista);
-            return true;
-
-        } catch (IOException e) {
-            System.err.println("Erro ao salvar: " + e.getMessage());
-            return false;
         }
     }
 
