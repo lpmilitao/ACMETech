@@ -43,4 +43,9 @@ public class Comprador extends Participante {
     public String geraDescricao() {
         return getCod() + ";" + getNome() + ";" + getPais() + ";" + getEmail() +  ";" + getQuantidadeComprada();
     }
+
+    @Override
+    public String toString() {
+        return "(" + getCod() + ") " + getNome() + " - "+ getEmail() + " - " + getPais();
+    }
 }

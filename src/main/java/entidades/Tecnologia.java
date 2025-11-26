@@ -90,7 +90,7 @@ public class Tecnologia {
 
     @Override
     public String toString() {
-        return id + ";" + modelo + ";" + descricao + ";" + valorBase +
-                ";" + peso + ";" + temperatura + ";" + fornecedor;
+        return "(" + id + ") " + modelo + ": " + descricao + " | R$" + valorBase + " - " + peso + "kg - "
+                + temperatura + "ºC | " + fornecedor;
     }
 }

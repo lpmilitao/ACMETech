@@ -1,6 +1,8 @@
 package entidades;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Venda {
     private long num;
@@ -28,6 +30,11 @@ public class Venda {
 
     public LocalDate getData() {
         return data;
+    }
+
+    public String getDataFormatada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return data.format(formatter);
     }
 
     public void setData(LocalDate data) {
@@ -69,14 +76,9 @@ public class Venda {
                 (percentualAcrescidoPorFidelidade * tecnologia.getValorBase());
     }
 
-    @Override
-    public String toString() {
-        return "Venda{" +
-                "num=" + num +
-                ", data=" + data +
-                ", valorFinal=" + valorFinal +
-                ", tecnologia=" + tecnologia.getDescricao() +
-                ", comprador=" + comprador.getNome() +
-                '}';
+    public String getRelatorio() {
+        return "[" + num + "] '" + tecnologia.getModelo() + ": " + tecnologia.getDescricao() +
+                "' comprado por '" + comprador.getNome() + "' (" + comprador.getCod() + ") pelo valor de R$ " + valorFinal
+                + " na data de " + getDataFormatada();
     }
 }
