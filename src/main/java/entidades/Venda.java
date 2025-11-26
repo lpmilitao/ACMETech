@@ -1,7 +1,6 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Venda {
     private long num;
@@ -60,8 +59,14 @@ public class Venda {
     }
 
     public double calculaValorFinal(){
-        // TODO
-        return 0.0;
+        double percentualAcrescidoPorArea = this.tecnologia.getFornecedor().getArea().getAcrescimo();
+        double percentualAcrescidoPorFidelidade = this.comprador.getQuantidadeComprada() * 0.01;
+
+        if (percentualAcrescidoPorFidelidade > 0.10) percentualAcrescidoPorFidelidade = 0.10; //trava o desconto em 10%
+
+        return tecnologia.getValorBase() +
+                (percentualAcrescidoPorArea * tecnologia.getValorBase()) +
+                (percentualAcrescidoPorFidelidade * tecnologia.getValorBase());
     }
 
     @Override

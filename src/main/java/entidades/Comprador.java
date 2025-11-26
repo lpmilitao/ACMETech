@@ -3,11 +3,13 @@ package entidades;
 public class Comprador extends Participante {
     private String pais;
     private String email;
+    private int quantidadeComprada;
 
     public Comprador(long cod, String nome, String pais, String email) {
         super(cod, nome);
         this.pais = pais;
         this.email = email;
+        this.quantidadeComprada = 0;
     }
 
     public String getPais() {
@@ -26,9 +28,19 @@ public class Comprador extends Participante {
         this.email = email;
     }
 
+    public int getQuantidadeComprada() {
+        return quantidadeComprada;
+    }
+
+    public void setQuantidadeComprada(int quantidadeComprada) {
+        this.quantidadeComprada = quantidadeComprada;
+    }
+    public void registrarNovaCompra() {
+        this.quantidadeComprada++;
+    }
 
     @Override
     public String geraDescricao() {
-        return getCod() + ";" + getNome() + ";" + getPais() + ";" + getEmail();
+        return getCod() + ";" + getNome() + ";" + getPais() + ";" + getEmail() +  ";" + getQuantidadeComprada();
     }
 }
