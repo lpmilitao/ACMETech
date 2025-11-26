@@ -20,6 +20,10 @@ public class CatalogoCompradores {
         return this.compradores;
     }
 
+    public void setCompradores(List<Comprador> compradores) {
+        this.compradores = compradores;
+    }
+
     public void cadastrarComprador(String codRaw, String nome, String pais, String email) {
 
         if (codRaw.trim().isBlank() || pais.trim().isBlank() || email.trim().isBlank() || nome.trim().isBlank())

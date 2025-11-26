@@ -9,6 +9,9 @@ public abstract class Participante {
         this.nome = nome;
     }
 
+    public Participante() {
+    }
+
     public long getCod() {
         return cod;
     }

@@ -19,6 +19,10 @@ public class CatalogoTecnologias {
         return tecnologias;
     }
 
+    public void setTecnologias(List<Tecnologia> tecnologias) {
+        this.tecnologias = tecnologias;
+    }
+
     public void cadastrarTecnologia(String idRaw, String modelo, String descricao, String valorBaseRaw, String pesoRaw,
                                     String temperaturaRaw, Fornecedor fornecedor) {
         long id;

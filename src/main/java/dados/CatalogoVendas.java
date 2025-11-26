@@ -21,6 +21,10 @@ public class CatalogoVendas {
         return vendas;
     }
 
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
+    }
+
     public Venda gerarVenda(String numRaw, String dataRaw, Tecnologia tecnologia, Comprador comprador)
             throws ParseException, IllegalArgumentException {
 

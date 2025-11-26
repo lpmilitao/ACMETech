@@ -22,6 +22,10 @@ public class CatalogoFornecedores {
         return fornecedores;
     }
 
+    public void setFornecedores(List<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
+    }
+
     public void cadastrarFornecedor(String codRaw, String nome, String dataRaw, String areaRaw) throws ParseException {
 
         if (codRaw.trim().isBlank() || nome.trim().isBlank()

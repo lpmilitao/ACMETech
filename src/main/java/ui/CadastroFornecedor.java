@@ -8,6 +8,7 @@ import ui.components.*;
 
 import javax.swing.*;
 import java.text.ParseException;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class CadastroFornecedor extends TelaBase {
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );
-        } catch (NumberFormatException excp) {
+        } catch (NumberFormatException | ParseException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     "O código do fornecedor deve ser numérico",
@@ -110,7 +111,7 @@ public class CadastroFornecedor extends TelaBase {
                     "Erro de Validação",
                     JOptionPane.ERROR_MESSAGE
             );
-        } catch (ParseException  excp) {
+        } catch (DateTimeParseException excp) {
             JOptionPane.showMessageDialog(
                     this.getPanel(),
                     "A data deve estar no formato dd/mm/aaaa",

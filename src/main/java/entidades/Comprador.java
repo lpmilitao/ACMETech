@@ -12,6 +12,10 @@ public class Comprador extends Participante {
         this.quantidadeComprada = 0;
     }
 
+    public Comprador() {
+        super();
+    }
+
     public String getPais() {
         return pais;
     }

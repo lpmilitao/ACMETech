@@ -23,6 +23,9 @@ public class Tecnologia {
         this.vendida = false;
     }
 
+    public Tecnologia() {
+    }
+
     public long getId() {
         return id;
     }

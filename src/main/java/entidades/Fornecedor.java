@@ -15,7 +15,10 @@ public class Fornecedor extends Participante {
         this.qtdTecnologiasFornecidas = 0;
     }
 
-    public String getFundacaoFormatada() {
+    public Fornecedor() {
+    }
+
+    public String dataDeFundacaoFormatada() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return fundacao.format(formatter);
     }
@@ -55,6 +58,6 @@ public class Fornecedor extends Participante {
 
     @Override
     public String toString() {
-        return "(" + getCod() + ") " + getNome() + " - "+ getFundacao() + " - " + getArea().toString() + " - tecnologias: " + getQtdTecnologiasFornecidas();
+        return "(" + getCod() + ") " + getNome() + " - "+ dataDeFundacaoFormatada() + " - " + getArea().toString() + " - tecnologias: " + getQtdTecnologiasFornecidas();
     }
 }

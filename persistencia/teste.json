@@ -1,5 +1,11 @@
 {
   "compradores" : [ {
+    "cod" : 1,
+    "nome" : "Gabriel",
+    "pais" : "Brasil",
+    "email" : "gabriel@gmail.com",
+    "quantidadeComprada" : 1
+  }, {
     "cod" : 22,
     "nome" : "Coyote",
     "pais" : "Estados Unidos da America",
@@ -17,24 +23,42 @@
     "nome" : "Stark Industries",
     "fundacao" : "2005-05-05",
     "area" : "EMERGENTE",
-    "qtdTecnologiasFornecidas" : 1,
-    "fundacaoFormatada" : "05/05/2005"
+    "qtdTecnologiasFornecidas" : 1
+  }, {
+    "cod" : 2,
+    "nome" : "Luiza",
+    "fundacao" : "2004-04-16",
+    "area" : "TI",
+    "qtdTecnologiasFornecidas" : 1
   }, {
     "cod" : 4,
     "nome" : "ACME Corp.",
     "fundacao" : "1993-03-03",
     "area" : "EMERGENTE",
-    "qtdTecnologiasFornecidas" : 2,
-    "fundacaoFormatada" : "03/03/1993"
+    "qtdTecnologiasFornecidas" : 2
   }, {
     "cod" : 5,
     "nome" : "Wayne Enterprises",
     "fundacao" : "1984-04-04",
     "area" : "EMERGENTE",
-    "qtdTecnologiasFornecidas" : 2,
-    "fundacaoFormatada" : "04/04/1984"
+    "qtdTecnologiasFornecidas" : 2
   } ],
   "tecnologias" : [ {
+    "id" : 1,
+    "modelo" : "Iphone 17",
+    "descricao" : "Iphone 17 pro max",
+    "valorBase" : 7100.0,
+    "peso" : 2.0,
+    "temperatura" : 20.0,
+    "fornecedor" : {
+      "cod" : 2,
+      "nome" : "Luiza",
+      "fundacao" : "2004-04-16",
+      "area" : "TI",
+      "qtdTecnologiasFornecidas" : 1
+    },
+    "vendida" : true
+  }, {
     "id" : 101,
     "modelo" : "100 T Anvil",
     "descricao" : "Bigorna de 100 toneladas",
@@ -46,8 +70,7 @@
       "nome" : "ACME Corp.",
       "fundacao" : "1993-03-03",
       "area" : "EMERGENTE",
-      "qtdTecnologiasFornecidas" : 2,
-      "fundacaoFormatada" : "03/03/1993"
+      "qtdTecnologiasFornecidas" : 2
     },
     "vendida" : true
   }, {
@@ -62,8 +85,7 @@
       "nome" : "Wayne Enterprises",
       "fundacao" : "1984-04-04",
       "area" : "EMERGENTE",
-      "qtdTecnologiasFornecidas" : 2,
-      "fundacaoFormatada" : "04/04/1984"
+      "qtdTecnologiasFornecidas" : 2
     },
     "vendida" : true
   }, {
@@ -78,8 +100,7 @@
       "nome" : "Stark Industries",
       "fundacao" : "2005-05-05",
       "area" : "EMERGENTE",
-      "qtdTecnologiasFornecidas" : 1,
-      "fundacaoFormatada" : "05/05/2005"
+      "qtdTecnologiasFornecidas" : 1
     },
     "vendida" : true
   }, {
@@ -94,8 +115,7 @@
       "nome" : "ACME Corp.",
       "fundacao" : "1993-03-03",
       "area" : "EMERGENTE",
-      "qtdTecnologiasFornecidas" : 2,
-      "fundacaoFormatada" : "03/03/1993"
+      "qtdTecnologiasFornecidas" : 2
     },
     "vendida" : true
   }, {
@@ -110,8 +130,7 @@
       "nome" : "Wayne Enterprises",
       "fundacao" : "1984-04-04",
       "area" : "EMERGENTE",
-      "qtdTecnologiasFornecidas" : 2,
-      "fundacaoFormatada" : "04/04/1984"
+      "qtdTecnologiasFornecidas" : 2
     },
     "vendida" : true
   } ],
@@ -131,8 +150,7 @@
         "nome" : "Wayne Enterprises",
         "fundacao" : "1984-04-04",
         "area" : "EMERGENTE",
-        "qtdTecnologiasFornecidas" : 2,
-        "fundacaoFormatada" : "04/04/1984"
+        "qtdTecnologiasFornecidas" : 2
       },
       "vendida" : true
     },
@@ -142,9 +160,7 @@
       "pais" : "Marrocos",
       "email" : "rebelally@email.com",
       "quantidadeComprada" : 3
-    },
-    "dataFormatada" : "08/08/2018",
-    "relatorio" : "[8888] 'Shark repellent: Repelente de tubarao' comprado por 'Alianca rebelde' (44) pelo valor de R$ 687.49 na data de 08/08/2018"
+    }
   }, {
     "num" : 7777,
     "data" : "2017-07-07",
@@ -161,8 +177,7 @@
         "nome" : "Wayne Enterprises",
         "fundacao" : "1984-04-04",
         "area" : "EMERGENTE",
-        "qtdTecnologiasFornecidas" : 2,
-        "fundacaoFormatada" : "04/04/1984"
+        "qtdTecnologiasFornecidas" : 2
       },
       "vendida" : true
     },
@@ -172,9 +187,7 @@
       "pais" : "Marrocos",
       "email" : "rebelally@email.com",
       "quantidadeComprada" : 3
-    },
-    "dataFormatada" : "07/07/2017",
-    "relatorio" : "[7777] 'FR armor: Armadura resistente a fogo' comprado por 'Alianca rebelde' (44) pelo valor de R$ 252.53 na data de 07/07/2017"
+    }
   }, {
     "num" : 6666,
     "data" : "2024-04-04",
@@ -191,8 +204,7 @@
         "nome" : "ACME Corp.",
         "fundacao" : "1993-03-03",
         "area" : "EMERGENTE",
-        "qtdTecnologiasFornecidas" : 2,
-        "fundacaoFormatada" : "03/03/1993"
+        "qtdTecnologiasFornecidas" : 2
       },
       "vendida" : true
     },
@@ -202,9 +214,7 @@
       "pais" : "Estados Unidos da America",
       "email" : "coyote@toons.com",
       "quantidadeComprada" : 2
-    },
-    "dataFormatada" : "04/04/2024",
-    "relatorio" : "[6666] '100 T Anvil: Bigorna de 100 toneladas' comprado por 'Coyote' (22) pelo valor de R$ 125.0 na data de 04/04/2024"
+    }
   }, {
     "num" : 5555,
     "data" : "2021-01-01",
@@ -221,8 +231,7 @@
         "nome" : "Stark Industries",
         "fundacao" : "2005-05-05",
         "area" : "EMERGENTE",
-        "qtdTecnologiasFornecidas" : 1,
-        "fundacaoFormatada" : "05/05/2005"
+        "qtdTecnologiasFornecidas" : 1
       },
       "vendida" : true
     },
@@ -232,9 +241,7 @@
       "pais" : "Marrocos",
       "email" : "rebelally@email.com",
       "quantidadeComprada" : 3
-    },
-    "dataFormatada" : "01/01/2021",
-    "relatorio" : "[5555] 'Jericho: Missil anti-missil' comprado por 'Alianca rebelde' (44) pelo valor de R$ 371.21 na data de 01/01/2021"
+    }
   }, {
     "num" : 3333,
     "data" : "2023-03-03",
@@ -251,8 +258,7 @@
         "nome" : "ACME Corp.",
         "fundacao" : "1993-03-03",
         "area" : "EMERGENTE",
-        "qtdTecnologiasFornecidas" : 2,
-        "fundacaoFormatada" : "03/03/1993"
+        "qtdTecnologiasFornecidas" : 2
       },
       "vendida" : true
     },
@@ -262,8 +268,33 @@
       "pais" : "Estados Unidos da America",
       "email" : "coyote@toons.com",
       "quantidadeComprada" : 2
+    }
+  }, {
+    "num" : 1,
+    "data" : "2025-11-26",
+    "valorFinal" : 8520.0,
+    "tecnologia" : {
+      "id" : 1,
+      "modelo" : "Iphone 17",
+      "descricao" : "Iphone 17 pro max",
+      "valorBase" : 7100.0,
+      "peso" : 2.0,
+      "temperatura" : 20.0,
+      "fornecedor" : {
+        "cod" : 2,
+        "nome" : "Luiza",
+        "fundacao" : "2004-04-16",
+        "area" : "TI",
+        "qtdTecnologiasFornecidas" : 1
+      },
+      "vendida" : true
     },
-    "dataFormatada" : "03/03/2023",
-    "relatorio" : "[3333] 'Bird trap: Armadilha para passaros' comprado por 'Coyote' (22) pelo valor de R$ 555.55 na data de 03/03/2023"
+    "comprador" : {
+      "cod" : 1,
+      "nome" : "Gabriel",
+      "pais" : "Brasil",
+      "email" : "gabriel@gmail.com",
+      "quantidadeComprada" : 1
+    }
   } ]
 }
