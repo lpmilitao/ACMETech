@@ -50,7 +50,7 @@ public class ACMETech extends JFrame {
 
         cadastrarTecnologias();
 
-        cadastrarVendas();
+        //cadastrarVendas();
 
         inicializarLayout();
 
@@ -227,6 +227,10 @@ public class ACMETech extends JFrame {
             case REMOVER_VENDA:
                 RemoverVenda removerVenda = (RemoverVenda) telas.get(Telas.REMOVER_VENDA);
                 removerVenda.atualizarLista();
+                break;
+            case CONSULTA:
+                Consulta consulta = (Consulta) telas.get(Telas.CONSULTA);
+                consulta.limparLista();
                 break;
             default:
                 break;

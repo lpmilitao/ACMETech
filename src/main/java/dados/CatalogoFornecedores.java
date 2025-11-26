@@ -3,6 +3,7 @@ package dados;
 import entidades.Area;
 import entidades.Fornecedor;
 import entidades.IdentificadorJaExistenteException;
+import entidades.Tecnologia;
 
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -64,5 +65,20 @@ public class CatalogoFornecedores {
         return this.fornecedores.stream().filter(fornecedor -> fornecedor.getCod() == cod)
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Fornecedor> getFornecedorComMaisTecnologias(List<Tecnologia> tecnologias) {
+        if (tecnologias.isEmpty() || fornecedores.isEmpty()) return new ArrayList<>();
+
+        this.fornecedores.sort(Comparator.comparingDouble(Fornecedor::getQtdTecnologiasFornecidas).reversed());
+        double maiorQtd = this.fornecedores.getFirst().getQtdTecnologiasFornecidas();
+
+        List<Fornecedor> vencedores = this.fornecedores.stream()
+                .filter(f -> f.getQtdTecnologiasFornecidas() >= maiorQtd)
+                .toList();
+
+        sortFornecedores(); //ajustando a ordenação normal
+
+        return vencedores;
     }
 }

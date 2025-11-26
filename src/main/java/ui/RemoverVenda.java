@@ -25,6 +25,7 @@ public class RemoverVenda extends TelaBase {
     public RemoverVenda(ACMETech APLICACAO, CatalogoVendas VENDAS) {
         this.APLICACAO = APLICACAO;
         this.VENDAS = VENDAS;
+        ajustarScrollPane();
     }
 
     @Override
