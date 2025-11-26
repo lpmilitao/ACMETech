@@ -31,7 +31,7 @@ public class CatalogoFornecedores {
         if (codRaw.trim().isBlank() || nome.trim().isBlank()
                 || dataRaw.trim().isBlank() || areaRaw.trim().isBlank()
         ) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
         }
 
         Area area = Area.valueOf(areaRaw.trim());

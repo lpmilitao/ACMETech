@@ -45,10 +45,10 @@ public class AlterarComprador extends TelaBase {
     }
 
     private void createUIComponents() {
-        botaoSalvar = new Botao("Cadastrar");
-        botaoBuscar = new Botao("Limpar Campos");
+        botaoSalvar = new Botao("Salvar Alterações");
+        botaoBuscar = new Botao("Buscar");
         botaoVoltar = new Botao("Voltar ao Menu");
-        botaoCancelar = new Botao("Voltar ao Menu");
+        botaoCancelar = new Botao("Cancelar");
 
         botaoSalvar.addActionListener(e -> salvarAlteracoes());
         botaoBuscar.addActionListener(e -> buscarDadosComprador());

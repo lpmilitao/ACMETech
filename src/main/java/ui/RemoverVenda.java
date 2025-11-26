@@ -34,7 +34,7 @@ public class RemoverVenda extends TelaBase {
 
     private void createUIComponents() {
         botaoVoltar = new Botao("Voltar ao Menu");
-        botaoExcluir = new Botao("Voltar ao Menu");
+        botaoExcluir = new Botao("Excluir");
 
         botaoVoltar.addActionListener(e -> APLICACAO.mudarTela(Telas.MENU));
         botaoExcluir.addActionListener(e -> excluir());

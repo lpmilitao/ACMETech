@@ -5,7 +5,6 @@ import dados.CatalogoCompradores;
 import dados.CatalogoFornecedores;
 import dados.CatalogoTecnologias;
 import dados.CatalogoVendas;
-import entidades.Comprador;
 import ui.components.*;
 
 import javax.swing.*;
@@ -67,7 +66,7 @@ public class Consulta<T> extends TelaBase {
     }
 
     private void consultarTecnologia() {
-        lista = TECNOLOGIAS.gedtTecnologiasComMaiorValor();
+        lista = TECNOLOGIAS.getTecnologiasComMaiorValor();
         atualizarLista();
     }
 

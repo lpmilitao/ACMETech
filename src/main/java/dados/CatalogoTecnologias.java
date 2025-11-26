@@ -73,7 +73,7 @@ public class CatalogoTecnologias {
         this.tecnologias.sort(Comparator.comparingLong(Tecnologia::getId));
     }
 
-    public List<Tecnologia> gedtTecnologiasComMaiorValor(){
+    public List<Tecnologia> getTecnologiasComMaiorValor(){
         if (this.tecnologias.isEmpty()) return new ArrayList<>();
 
         this.tecnologias.sort(Comparator.comparingDouble(Tecnologia::getValorBase).reversed());

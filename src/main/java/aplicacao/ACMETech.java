@@ -5,6 +5,7 @@ import dados.CatalogoFornecedores;
 import dados.CatalogoTecnologias;
 import dados.CatalogoVendas;
 import entidades.Comprador;
+import entidades.IdentificadorJaExistenteException;
 import entidades.Tecnologia;
 import entidades.Venda;
 import ui.*;
@@ -94,8 +95,12 @@ public class ACMETech extends JFrame {
 
                     compradores.cadastrarComprador(cod, nome, fundacaoPais, area_email);
 
-                } catch (NoSuchElementException | ParseException e) {
+                } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
+                } catch (ParseException e) {
+                    System.out.println("A data deve estar no formato dd/mm/aaaa");
                 }
             }
         } catch (IOException e) {
@@ -125,6 +130,8 @@ public class ACMETech extends JFrame {
                             fornecedores.getFornecedorByCod(Long.parseLong(fornecedor)));
 
                 } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
             }
@@ -157,10 +164,11 @@ public class ACMETech extends JFrame {
                     );
 
                 } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
-
                 } catch (ParseException e) {
-                    System.out.println("Tipo incorreto!\n " + e.getMessage());
+                    System.out.println("A data deve estar no formato dd/mm/aaaa");
                 }
             }
         } catch (IOException e) {
@@ -184,6 +192,7 @@ public class ACMETech extends JFrame {
         this.pack();
         setSize(1300, 800);
 
+        //atualizações necessárias em trocas de telas para manter os dados atualizados
         switch (tela) {
             case CADASTRO_TECNOLOGIA:
                 CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);
