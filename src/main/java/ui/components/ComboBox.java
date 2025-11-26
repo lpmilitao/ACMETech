@@ -7,10 +7,10 @@ import java.awt.*;
 import java.util.List;
 
 public class ComboBox<E> extends JComboBox<E> {
-    private Color corAtual;
     private final Color ROXO = new Color(125, 135, 172);
     private final Color ROXO_CLARO = new Color(82, 85, 110);
     private final int RAIO = 15;
+    private Color corAtual;
 
     public ComboBox() {
         super();

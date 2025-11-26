@@ -12,7 +12,6 @@ public class CampoTexto extends JTextField {
     private final Color ROXO_CLARO = new Color(82, 85, 110);
     private final Font FONTE_PADRAO = new Font("SansSerif", Font.PLAIN, 16);
     private final int RAIO = 15;
-
     private Color corAtual;
 
     public CampoTexto(int colunas) {

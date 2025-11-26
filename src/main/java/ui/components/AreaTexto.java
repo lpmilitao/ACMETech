@@ -32,7 +32,6 @@ public class AreaTexto extends JTextPane {
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
 
-
     @Override
     public boolean getScrollableTracksViewportWidth() {
         return true;

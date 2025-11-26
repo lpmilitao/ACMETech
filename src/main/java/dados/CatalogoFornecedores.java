@@ -61,10 +61,6 @@ public class CatalogoFornecedores {
         this.fornecedores.sort(Comparator.comparingLong(Fornecedor::getCod));
     }
 
-    public void deletarTodos() {
-        this.fornecedores.clear();
-    }
-
     public Fornecedor getFornecedorByCod(long cod) {
         return this.fornecedores.stream().filter(fornecedor -> fornecedor.getCod() == cod)
                 .findFirst()

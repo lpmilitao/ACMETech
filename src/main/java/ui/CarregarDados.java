@@ -122,7 +122,7 @@ public class CarregarDados extends TelaBase {
         this.VENDAS.setVendas(dados.getVendas());
     }
 
-    public boolean verificaNomeArquivoValido(String nome) {
+    private boolean verificaNomeArquivoValido(String nome) {
         if (nome.trim().isEmpty()) return false;
 
         String regex = "^[a-zA-Z0-9_\\-\\s()]+$";

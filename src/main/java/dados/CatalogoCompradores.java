@@ -70,7 +70,7 @@ public class CatalogoCompradores {
         comprador.setEmail(email);
     }
 
-    public List<?> getCompradoresComMaisVendas() {
+    public List<Comprador> getCompradoresComMaisVendas() {
         if (this.compradores.isEmpty()) return new ArrayList<>();
 
         this.compradores.sort(Comparator.comparingDouble(Comprador::getQuantidadeComprada).reversed());

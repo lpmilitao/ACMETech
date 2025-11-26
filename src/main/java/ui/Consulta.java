@@ -12,7 +12,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consulta<T> extends TelaBase {
+public class Consulta extends TelaBase {
     private final ACMETech APLICACAO;
     private final CatalogoFornecedores FORNECEDORES;
     private final CatalogoCompradores COMPRADORES;
