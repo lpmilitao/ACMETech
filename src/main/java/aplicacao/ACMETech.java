@@ -1,9 +1,13 @@
 package aplicacao;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import dados.*;
-import entidades.*;
+import dados.CatalogoCompradores;
+import dados.CatalogoFornecedores;
+import dados.CatalogoTecnologias;
+import dados.CatalogoVendas;
+import entidades.Comprador;
+import entidades.IdentificadorJaExistenteException;
+import entidades.Tecnologia;
+import entidades.Venda;
 import ui.*;
 import ui.Menu;
 import ui.components.TelaBase;
@@ -12,7 +16,6 @@ import ui.components.Telas;
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,14 +23,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.*;
-import java.util.List;
+import java.util.Queue;
 
 public class ACMETech extends JFrame {
     private CatalogoFornecedores fornecedores;
     private CatalogoCompradores compradores;
     private CatalogoTecnologias tecnologias;
     private CatalogoVendas vendas;
-    private ObjectMapper mapper = new ObjectMapper();
     private HashMap<Telas, TelaBase> telas;
 
     public ACMETech() {
@@ -50,7 +52,7 @@ public class ACMETech extends JFrame {
 
         cadastrarTecnologias();
 
-        //cadastrarVendas();
+        cadastrarVendas();
 
         inicializarLayout();
 
@@ -93,8 +95,12 @@ public class ACMETech extends JFrame {
 
                     compradores.cadastrarComprador(cod, nome, fundacaoPais, area_email);
 
-                } catch (NoSuchElementException | ParseException e) {
+                } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
+                } catch (ParseException e) {
+                    System.out.println("A data deve estar no formato dd/mm/aaaa");
                 }
             }
         } catch (IOException e) {
@@ -124,6 +130,8 @@ public class ACMETech extends JFrame {
                             fornecedores.getFornecedorByCod(Long.parseLong(fornecedor)));
 
                 } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
             }
@@ -156,10 +164,11 @@ public class ACMETech extends JFrame {
                     );
 
                 } catch (NoSuchElementException e) {
+                    System.out.println("Linha não encontrada!");
+                } catch (IdentificadorJaExistenteException | IllegalArgumentException e) {
                     System.out.println(e.getMessage());
-
                 } catch (ParseException e) {
-                    System.out.println("Tipo incorreto!\n " + e.getMessage());
+                    System.out.println("A data deve estar no formato dd/mm/aaaa");
                 }
             }
         } catch (IOException e) {
@@ -168,22 +177,6 @@ public class ACMETech extends JFrame {
 
         while (!vendas.isEmpty()) {
             this.vendas.cadastrarVenda(vendas.poll());
-        }
-    }
-
-    public <T> boolean salvarDados(List<T> lista, String arquivo) {
-
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        mapper.setVisibility(com.fasterxml.jackson.annotation.PropertyAccessor.FIELD,
-                com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY);
-
-        try {
-            mapper.writeValue(new File("persistencia", arquivo), lista);
-            return true;
-
-        } catch (IOException e) {
-            System.err.println("Erro ao salvar: " + e.getMessage());
-            return false;
         }
     }
 
@@ -199,6 +192,7 @@ public class ACMETech extends JFrame {
         this.pack();
         setSize(1300, 800);
 
+        //atualizações necessárias em trocas de telas para manter os dados atualizados
         switch (tela) {
             case CADASTRO_TECNOLOGIA:
                 CadastroTecnologia cadastroTecnologia = (CadastroTecnologia) telas.get(Telas.CADASTRO_TECNOLOGIA);

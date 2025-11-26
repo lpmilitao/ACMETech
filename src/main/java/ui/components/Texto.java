@@ -1,11 +1,14 @@
 package ui.components;
 
 import javax.swing.*;
+
 import java.awt.*;
 
-import static ui.components.Padroes.*;
-
 public class Texto extends JLabel {
+    private final Color ROXO_TEXTO = new Color(43, 45, 66);
+    private final Font FONTE_PADRAO = new Font("SansSerif", Font.PLAIN, 16);
+    private final Font FONTE_TITULO = new Font("SansSerif", Font.BOLD, 26);
+
     public Texto(String texto, boolean titulo) {
         super(texto);
         configurarEstilo(titulo);

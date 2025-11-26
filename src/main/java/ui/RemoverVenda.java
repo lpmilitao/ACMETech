@@ -2,7 +2,6 @@ package ui;
 
 import aplicacao.ACMETech;
 import dados.CatalogoVendas;
-import entidades.Tecnologia;
 import entidades.Venda;
 import ui.components.*;
 
@@ -35,7 +34,7 @@ public class RemoverVenda extends TelaBase {
 
     private void createUIComponents() {
         botaoVoltar = new Botao("Voltar ao Menu");
-        botaoExcluir = new Botao("Voltar ao Menu");
+        botaoExcluir = new Botao("Excluir");
 
         botaoVoltar.addActionListener(e -> APLICACAO.mudarTela(Telas.MENU));
         botaoExcluir.addActionListener(e -> excluir());
@@ -85,7 +84,7 @@ public class RemoverVenda extends TelaBase {
         StringBuilder lista = new StringBuilder();
 
         for (Venda venda : VENDAS.getVendas()) {
-            lista.append(venda.getRelatorio() + "\n");
+            lista.append(venda.relatorio() + "\n");
         }
 
         vendas.setText(lista.toString());

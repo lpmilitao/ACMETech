@@ -1,7 +1,6 @@
 package dados;
 
 import entidades.Comprador;
-import entidades.Fornecedor;
 import entidades.Tecnologia;
 import entidades.Venda;
 
@@ -19,6 +18,10 @@ public class CatalogoVendas {
 
     public List<Venda> getVendas() {
         return vendas;
+    }
+
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
     }
 
     public Venda gerarVenda(String numRaw, String dataRaw, Tecnologia tecnologia, Comprador comprador)

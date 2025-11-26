@@ -22,12 +22,16 @@ public class CatalogoFornecedores {
         return fornecedores;
     }
 
+    public void setFornecedores(List<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
+    }
+
     public void cadastrarFornecedor(String codRaw, String nome, String dataRaw, String areaRaw) throws ParseException {
 
         if (codRaw.trim().isBlank() || nome.trim().isBlank()
                 || dataRaw.trim().isBlank() || areaRaw.trim().isBlank()
         ) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
         }
 
         Area area = Area.valueOf(areaRaw.trim());

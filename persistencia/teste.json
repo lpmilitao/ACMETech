@@ -1,0 +1,300 @@
+{
+  "compradores" : [ {
+    "cod" : 1,
+    "nome" : "Gabriel",
+    "pais" : "Brasil",
+    "email" : "gabriel@gmail.com",
+    "quantidadeComprada" : 1
+  }, {
+    "cod" : 22,
+    "nome" : "Coyote",
+    "pais" : "Estados Unidos da America",
+    "email" : "coyote@toons.com",
+    "quantidadeComprada" : 2
+  }, {
+    "cod" : 44,
+    "nome" : "Alianca rebelde",
+    "pais" : "Marrocos",
+    "email" : "rebelally@email.com",
+    "quantidadeComprada" : 3
+  } ],
+  "fornecedores" : [ {
+    "cod" : 1,
+    "nome" : "Stark Industries",
+    "fundacao" : "2005-05-05",
+    "area" : "EMERGENTE",
+    "qtdTecnologiasFornecidas" : 1
+  }, {
+    "cod" : 2,
+    "nome" : "Luiza",
+    "fundacao" : "2004-04-16",
+    "area" : "TI",
+    "qtdTecnologiasFornecidas" : 1
+  }, {
+    "cod" : 4,
+    "nome" : "ACME Corp.",
+    "fundacao" : "1993-03-03",
+    "area" : "EMERGENTE",
+    "qtdTecnologiasFornecidas" : 2
+  }, {
+    "cod" : 5,
+    "nome" : "Wayne Enterprises",
+    "fundacao" : "1984-04-04",
+    "area" : "EMERGENTE",
+    "qtdTecnologiasFornecidas" : 2
+  } ],
+  "tecnologias" : [ {
+    "id" : 1,
+    "modelo" : "Iphone 17",
+    "descricao" : "Iphone 17 pro max",
+    "valorBase" : 7100.0,
+    "peso" : 2.0,
+    "temperatura" : 20.0,
+    "fornecedor" : {
+      "cod" : 2,
+      "nome" : "Luiza",
+      "fundacao" : "2004-04-16",
+      "area" : "TI",
+      "qtdTecnologiasFornecidas" : 1
+    },
+    "vendida" : true
+  }, {
+    "id" : 101,
+    "modelo" : "100 T Anvil",
+    "descricao" : "Bigorna de 100 toneladas",
+    "valorBase" : 101.01,
+    "peso" : 100.1,
+    "temperatura" : 2000.2,
+    "fornecedor" : {
+      "cod" : 4,
+      "nome" : "ACME Corp.",
+      "fundacao" : "1993-03-03",
+      "area" : "EMERGENTE",
+      "qtdTecnologiasFornecidas" : 2
+    },
+    "vendida" : true
+  }, {
+    "id" : 202,
+    "modelo" : "FR armor",
+    "descricao" : "Armadura resistente a fogo",
+    "valorBase" : 202.02,
+    "peso" : 200.2,
+    "temperatura" : 6000.6,
+    "fornecedor" : {
+      "cod" : 5,
+      "nome" : "Wayne Enterprises",
+      "fundacao" : "1984-04-04",
+      "area" : "EMERGENTE",
+      "qtdTecnologiasFornecidas" : 2
+    },
+    "vendida" : true
+  }, {
+    "id" : 303,
+    "modelo" : "Jericho",
+    "descricao" : "Missil anti-missil",
+    "valorBase" : 303.03,
+    "peso" : 300.3,
+    "temperatura" : 3000.3,
+    "fornecedor" : {
+      "cod" : 1,
+      "nome" : "Stark Industries",
+      "fundacao" : "2005-05-05",
+      "area" : "EMERGENTE",
+      "qtdTecnologiasFornecidas" : 1
+    },
+    "vendida" : true
+  }, {
+    "id" : 444,
+    "modelo" : "Bird trap",
+    "descricao" : "Armadilha para passaros",
+    "valorBase" : 444.44,
+    "peso" : 404.4,
+    "temperatura" : 400.4,
+    "fornecedor" : {
+      "cod" : 4,
+      "nome" : "ACME Corp.",
+      "fundacao" : "1993-03-03",
+      "area" : "EMERGENTE",
+      "qtdTecnologiasFornecidas" : 2
+    },
+    "vendida" : true
+  }, {
+    "id" : 555,
+    "modelo" : "Shark repellent",
+    "descricao" : "Repelente de tubarao",
+    "valorBase" : 555.55,
+    "peso" : 505.5,
+    "temperatura" : 50.5,
+    "fornecedor" : {
+      "cod" : 5,
+      "nome" : "Wayne Enterprises",
+      "fundacao" : "1984-04-04",
+      "area" : "EMERGENTE",
+      "qtdTecnologiasFornecidas" : 2
+    },
+    "vendida" : true
+  } ],
+  "vendas" : [ {
+    "num" : 8888,
+    "data" : "2018-08-08",
+    "valorFinal" : 687.49,
+    "tecnologia" : {
+      "id" : 555,
+      "modelo" : "Shark repellent",
+      "descricao" : "Repelente de tubarao",
+      "valorBase" : 555.55,
+      "peso" : 505.5,
+      "temperatura" : 50.5,
+      "fornecedor" : {
+        "cod" : 5,
+        "nome" : "Wayne Enterprises",
+        "fundacao" : "1984-04-04",
+        "area" : "EMERGENTE",
+        "qtdTecnologiasFornecidas" : 2
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 44,
+      "nome" : "Alianca rebelde",
+      "pais" : "Marrocos",
+      "email" : "rebelally@email.com",
+      "quantidadeComprada" : 3
+    }
+  }, {
+    "num" : 7777,
+    "data" : "2017-07-07",
+    "valorFinal" : 252.53,
+    "tecnologia" : {
+      "id" : 202,
+      "modelo" : "FR armor",
+      "descricao" : "Armadura resistente a fogo",
+      "valorBase" : 202.02,
+      "peso" : 200.2,
+      "temperatura" : 6000.6,
+      "fornecedor" : {
+        "cod" : 5,
+        "nome" : "Wayne Enterprises",
+        "fundacao" : "1984-04-04",
+        "area" : "EMERGENTE",
+        "qtdTecnologiasFornecidas" : 2
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 44,
+      "nome" : "Alianca rebelde",
+      "pais" : "Marrocos",
+      "email" : "rebelally@email.com",
+      "quantidadeComprada" : 3
+    }
+  }, {
+    "num" : 6666,
+    "data" : "2024-04-04",
+    "valorFinal" : 125.0,
+    "tecnologia" : {
+      "id" : 101,
+      "modelo" : "100 T Anvil",
+      "descricao" : "Bigorna de 100 toneladas",
+      "valorBase" : 101.01,
+      "peso" : 100.1,
+      "temperatura" : 2000.2,
+      "fornecedor" : {
+        "cod" : 4,
+        "nome" : "ACME Corp.",
+        "fundacao" : "1993-03-03",
+        "area" : "EMERGENTE",
+        "qtdTecnologiasFornecidas" : 2
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 22,
+      "nome" : "Coyote",
+      "pais" : "Estados Unidos da America",
+      "email" : "coyote@toons.com",
+      "quantidadeComprada" : 2
+    }
+  }, {
+    "num" : 5555,
+    "data" : "2021-01-01",
+    "valorFinal" : 371.21,
+    "tecnologia" : {
+      "id" : 303,
+      "modelo" : "Jericho",
+      "descricao" : "Missil anti-missil",
+      "valorBase" : 303.03,
+      "peso" : 300.3,
+      "temperatura" : 3000.3,
+      "fornecedor" : {
+        "cod" : 1,
+        "nome" : "Stark Industries",
+        "fundacao" : "2005-05-05",
+        "area" : "EMERGENTE",
+        "qtdTecnologiasFornecidas" : 1
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 44,
+      "nome" : "Alianca rebelde",
+      "pais" : "Marrocos",
+      "email" : "rebelally@email.com",
+      "quantidadeComprada" : 3
+    }
+  }, {
+    "num" : 3333,
+    "data" : "2023-03-03",
+    "valorFinal" : 555.55,
+    "tecnologia" : {
+      "id" : 444,
+      "modelo" : "Bird trap",
+      "descricao" : "Armadilha para passaros",
+      "valorBase" : 444.44,
+      "peso" : 404.4,
+      "temperatura" : 400.4,
+      "fornecedor" : {
+        "cod" : 4,
+        "nome" : "ACME Corp.",
+        "fundacao" : "1993-03-03",
+        "area" : "EMERGENTE",
+        "qtdTecnologiasFornecidas" : 2
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 22,
+      "nome" : "Coyote",
+      "pais" : "Estados Unidos da America",
+      "email" : "coyote@toons.com",
+      "quantidadeComprada" : 2
+    }
+  }, {
+    "num" : 1,
+    "data" : "2025-11-26",
+    "valorFinal" : 8520.0,
+    "tecnologia" : {
+      "id" : 1,
+      "modelo" : "Iphone 17",
+      "descricao" : "Iphone 17 pro max",
+      "valorBase" : 7100.0,
+      "peso" : 2.0,
+      "temperatura" : 20.0,
+      "fornecedor" : {
+        "cod" : 2,
+        "nome" : "Luiza",
+        "fundacao" : "2004-04-16",
+        "area" : "TI",
+        "qtdTecnologiasFornecidas" : 1
+      },
+      "vendida" : true
+    },
+    "comprador" : {
+      "cod" : 1,
+      "nome" : "Gabriel",
+      "pais" : "Brasil",
+      "email" : "gabriel@gmail.com",
+      "quantidadeComprada" : 1
+    }
+  } ]
+}

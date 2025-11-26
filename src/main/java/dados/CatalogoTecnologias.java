@@ -19,6 +19,10 @@ public class CatalogoTecnologias {
         return tecnologias;
     }
 
+    public void setTecnologias(List<Tecnologia> tecnologias) {
+        this.tecnologias = tecnologias;
+    }
+
     public void cadastrarTecnologia(String idRaw, String modelo, String descricao, String valorBaseRaw, String pesoRaw,
                                     String temperaturaRaw, Fornecedor fornecedor) {
         long id;
@@ -69,7 +73,7 @@ public class CatalogoTecnologias {
         this.tecnologias.sort(Comparator.comparingLong(Tecnologia::getId));
     }
 
-    public List<Tecnologia> gedtTecnologiasComMaiorValor(){
+    public List<Tecnologia> getTecnologiasComMaiorValor(){
         if (this.tecnologias.isEmpty()) return new ArrayList<>();
 
         this.tecnologias.sort(Comparator.comparingDouble(Tecnologia::getValorBase).reversed());

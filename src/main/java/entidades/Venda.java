@@ -21,6 +21,9 @@ public class Venda {
         this.valorFinal = calculaValorFinal();
     }
 
+    public Venda() {
+    }
+
     public long getNum() {
         return num;
     }
@@ -33,7 +36,7 @@ public class Venda {
         return data;
     }
 
-    public String getDataFormatada() {
+    public String dataFormatada() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return data.format(formatter);
     }
@@ -80,14 +83,14 @@ public class Venda {
         return bd.doubleValue();
     }
 
-    public String getRelatorio() {
+    public String relatorio() {
         return "[" + num + "] '" + tecnologia.getModelo() + ": " + tecnologia.getDescricao() +
                 "' comprado por '" + comprador.getNome() + "' (" + comprador.getCod() + ") pelo valor de R$ " + valorFinal
-                + " na data de " + getDataFormatada();
+                + " na data de " + dataFormatada();
     }
 
     @Override
     public String toString() {
-        return getRelatorio();
+        return relatorio();
     }
 }

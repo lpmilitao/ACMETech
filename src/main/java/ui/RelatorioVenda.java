@@ -1,9 +1,7 @@
 package ui;
 
 import aplicacao.ACMETech;
-import dados.CatalogoFornecedores;
 import dados.CatalogoVendas;
-import entidades.Fornecedor;
 import entidades.Venda;
 import ui.components.*;
 
@@ -55,7 +53,7 @@ public class RelatorioVenda extends TelaBase {
         StringBuilder lista = new StringBuilder();
 
         for (Venda venda : VENDAS.getVendas()) {
-            lista.append(venda.getRelatorio() + "\n");
+            lista.append(venda.relatorio() + "\n");
         }
 
         relatorio.setText(lista.toString());

@@ -1,9 +1,7 @@
 package dados;
 
 import entidades.Comprador;
-import entidades.Fornecedor;
 import entidades.IdentificadorJaExistenteException;
-import entidades.Tecnologia;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,6 +16,10 @@ public class CatalogoCompradores {
 
     public List<Comprador> getCompradores() {
         return this.compradores;
+    }
+
+    public void setCompradores(List<Comprador> compradores) {
+        this.compradores = compradores;
     }
 
     public void cadastrarComprador(String codRaw, String nome, String pais, String email) {
