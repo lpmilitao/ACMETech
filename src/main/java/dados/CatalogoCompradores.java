@@ -55,4 +55,15 @@ public class CatalogoCompradores {
     private void sortCompradores() {
         this.compradores.sort(Comparator.comparingLong(Comprador::getCod));
     }
+
+    public void alterar(String codRaw, String nome, String pais, String email) {
+        if (codRaw.trim().isBlank() || pais.trim().isBlank() || email.trim().isBlank() || nome.trim().isBlank())
+            throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
+
+        Comprador comprador =  getCompradorByCod(Long.parseLong(codRaw));
+
+        comprador.setNome(nome);
+        comprador.setPais(pais);
+        comprador.setEmail(email);
+    }
 }

@@ -20,19 +20,23 @@ public class Botao extends JButton {
         setBorderPainted(false);
         setForeground(Color.WHITE);
         setFont(new Font("SansSerif", Font.BOLD, 16));
-        setCursor(new Cursor(Cursor.HAND_CURSOR));
 
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                corAtual = ROXO_CLARO;
-                repaint();
+                if (isEnabled()) { //evento de hover apenas se o botao está habilitado
+                    corAtual = ROXO_CLARO;
+                    repaint();
+                    setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 corAtual = ROXO_ESCURO;
                 repaint();
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+
             }
         });
     }
